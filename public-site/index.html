@@ -13,6 +13,82 @@
                 margin: 1in;
                 font-family: 'Roboto Mono', sans-serif;
             }
+            #scrolly {
+                position: relative;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                padding: 1rem;
+		    }
+            #scrolly>* {
+                -webkit-box-flex: 1;
+                -ms-flex: 1;
+                flex: 1;
+            }
+
+            article {
+                position: relative;
+                max-width: 40rem;
+            }
+
+            figure {
+                position: -webkit-sticky;
+                position: sticky;
+                margin: 0;
+                -webkit-transform: translate3d(0, 0, 0);
+                -moz-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+                z-index: 0;
+            }
+
+            figure p {
+                text-align: center;
+                padding: 1rem;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                -moz-transform: translate(-50%, -50%);
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                font-size: 8rem;
+                font-weight: 900;
+                color: #fff;
+            }
+
+            .step {
+                margin: 0 auto 2rem auto;
+                background-color: #f8f8f8;
+                color: rgb(0, 0, 0);
+            }
+
+            .step:last-child {
+                margin-bottom: 0;
+            }
+
+            .step.is-active {
+                /* background-color: rgb(106, 181, 246); */
+                color: black;
+            }
+
+            .step.is-active h2{
+                color: #818BF2;
+                font-weight: 800;
+            }
+
+            .step h2 {
+                text-align: center;
+                padding: 2rem;
+                font-size: 2rem;
+            }
+            
+            .step p {
+                padding: 0 2rem;
+                font-size: 1.5rem;
+            }
+
+            * {
+            box-sizing: border-box;
+            }
             #layout {
                 display: inline-flex;
                 flex-wrap: wrap ;
@@ -65,12 +141,78 @@
             #card-footer {
                 margin: 1em 0;
             }
+            #tooltip{
+                display: inline-block;
+                background-color: white;
+                font-size: 10;
+                width: 150;
+                max-height: 170;
+                overflow-y: auto;
+                overflow-wrap: break-word;
+                padding: 1rem;
+                /* border: 1px solid black; */
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                border-radius: 5px;
+            }
         </style>
 
         <script src="https://d3js.org/d3.v7.min.js"></script>
         <script src="https://unpkg.com/d3-force-cluster@latest"></script>
+        <script src="https://unpkg.com/scrollama"></script>
+        <script src="https://cdn.jsdelivr.net/npm/d3-ease@3"></script>
     </head>
 <body>
+
+    <div id="content">
+    <h1>Pro-Ana Communities</h1>
+    <main>
+        <section id="scrolly">
+            <article>
+                <div class="step" data-step="1">
+                    <h2>How does topic modeling work?</h2>
+                    <p>
+                        Let's look at a post from our dataset as an example...
+                    </p>
+                </div>
+                <div class="step" data-step="2">
+                    <h2>Which topics are associated with this post?</h2>
+                    <p>
+                        Our model tells us that this post is associated with
+                        a few topics, including two topics which both have the word
+                        "weight" as one of their most probable words.
+                    </p>
+                </div>
+                <div class="step" data-step="3">
+                    <h2>Which topics are the most important?</h2>
+                    <p>
+                        And we can get a document-topic matrix which shows us
+                        the proportional weights of each topic associated with that post.
+                    </p>
+                </div>
+                <div class="step" data-step="4">
+                    <h2>Which documents are the most representative of a given topic?</h2>
+                    <p>
+                        We can also reverse this and see which documents are most highly associated with
+                        a given topic.
+                    </p>
+                </div>
+                <div class="step" data-step="5">
+                    <h2>Why should we care?</h2>
+                    <p>
+                        This helps us label common themes in these communities so that we can
+                        better understand their needs.
+                    </p>
+                </div>
+            </article>
+    
+            <figure>
+                <img src="images/step1.svg"></img>
+            </figure>
+        </section>
+    
+        <section id="outro"></section>
+    </main>
+
     <div id="layout">
         <div id="topic-0" class="container card">
             <div class="row">
@@ -102,10 +244,93 @@
             </div>
         </div>
     </div>
+    </div>
 
-    <script>
+    <script id="scroll">
 
+        // using d3 for convenience
+        var main = d3.select("main");
+        var scrolly = main.select("#scrolly");
+        var figure = scrolly.select("figure");
+        var article = scrolly.select("article");
+        var step = article.selectAll(".step");
 
+        // initialize the scrollama
+        var scroller = scrollama();
+
+        // generic window resize listener event
+        function handleResize() {
+            // 1. update height of step elements
+            var stepH = Math.floor(window.innerHeight * 0.55);
+            step.style("height", stepH + "px");
+
+            var figureHeight = window.innerHeight / 2;
+            var figureMarginTop = (window.innerHeight - figureHeight) / 2;
+
+            figure
+                .style("height", figureHeight + "px")
+                .style("top", figureMarginTop + "px");
+
+            // 3. tell scrollama to update new element dimensions
+            scroller.resize();
+        }
+
+        // scrollama event handlers
+        function handleStepEnter(response) {
+            console.log(response);
+            // response = { element, direction, index }
+
+            // add color to current step only
+            step.classed("is-active", function (d, i) {
+                return i === response.index;
+            });
+
+            // update graphic based on step
+
+            figure.append("img")
+
+            figure.select("img").attr("src", `images/step${response.index + 1}.svg`)
+
+            figure.select("img").transition().ease(d3.easeExpIn).duration(100).style("opacity", 1)
+
+        }
+
+        function handleStepExit(response) {
+            console.log(response);
+            // response = { element, direction, index }
+
+            figure.select("img")
+                .transition()
+                .ease(d3.easeExpOut)
+                .duration(100)
+                .style("opacity", 0)
+                .remove()
+        }
+
+        function init() {
+
+            // 1. force a resize on load to ensure proper dimensions are sent to scrollama
+            handleResize();
+
+            // 2. setup the scroller passing options
+            // 		this will also initialize trigger observations
+            // 3. bind scrollama event handlers (this can be chained like below)
+            scroller
+                .setup({
+                    step: "#scrolly article .step",
+                    offset: 0.33,
+                    debug: false
+                })
+                .onStepEnter(handleStepEnter)
+                .onStepExit(handleStepExit);
+        }
+
+        // kick things off
+        init();
+
+    </script>
+
+    <script id="cards">
     const requestData = async () => {
         full = await d3.csv("data/full_data.csv", d3.autoType)
         topWords = await d3.csv("data/top-words.csv", d3.autoType)
@@ -175,6 +400,12 @@
             cont.select("h4#card-title").text(textMap[chosenTopic])
         }
 
+        d3.select('body')
+            .append('div')
+            .attr('id', 'tooltip')
+            .attr('style', 'position: absolute; opacity: 0;');
+
+        d3.select('body').on('click', resetTooltip)
 
         function populateCard(chosenTopic, svg, topW) {
 
@@ -346,7 +577,44 @@
                 .style('fill', d => color(d.cluster))
                 .on("mouseover", hoverIn)
                 .on("mouseout", hoverOut)
-                .on("click", mouseClick);
+                .on("click", mouseClick)
+                .on('mousemove', mouseMove);
+
+            // legend
+            chartArea.append("circle")
+                     .attr("cx", 80)
+                     .attr("cy", 20)
+                     .attr("r", 6)
+                     .style("fill", "crimson")
+            chartArea.append("circle")
+                     .attr("cx", 170)
+                     .attr("cy", 20)
+                     .attr("r", 6)
+                     .style("fill", "coral")
+            chartArea.append("circle")
+                     .attr("cx", 240)
+                     .attr("cy", 20)
+                     .attr("r", 6)
+                     .style("fill", "cornflowerblue")
+            chartArea.append("text")
+                     .attr("x", 90)
+                     .attr("y", 20)
+                     .text("Reddit")
+                     .style("font-size", "15px")
+                     .attr("alignment-baseline", "middle")
+            chartArea.append("text")
+                     .attr("x", 180)
+                     .attr("y", 20)
+                     .text("MPA")
+                     .style("font-size", "15px")
+                     .attr("alignment-baseline", "middle")
+            chartArea.append("text")
+                     .attr("x", 250)
+                     .attr("y", 20)
+                     .text("EDC")
+                     .style("font-size", "15px")
+                     .attr("alignment-baseline", "middle")
+
 
             function layoutTick(e) {
                 node
@@ -383,16 +651,56 @@
         
 
 
-        function hoverIn(){
+        function hoverIn(e,d){
             d3.select(this).style("stroke", "black").style("stroke-width", 2)
+                
         }
 
         function hoverOut(){
-            d3.select(this).style("stroke", "")
+            
+            if(!d3.select(this).classed("active")){
+                d3.select(this).style("stroke", "")
+            }   
+        }
+
+        function mouseMove(e, d) {
+            // d3.select('#tooltip')
+            //     .style('left', (e.pageX + 10) + 'px').style('top', (e.pageY + 10) + 'px')
+            //     .text(d.text)
+            //     .transition()
+            //     .duration(100)
+            //     .ease(d3.easeCubicIn)
+            //     .style('opacity', 1).text(d.text)
         }
 
         function mouseClick(e,d){
-            console.log(d.text)
+
+            d3.select(this).classed("active", true)
+
+            let other = d3.selectAll("circle").filter(function(a){
+                return a != d
+            })
+
+            other.classed("active", false).style("stroke", "")
+                 
+            
+            d3.select('#tooltip')
+                .style('left', (e.pageX) + 'px').style('top', (e.pageY + 10) + 'px')
+                .text(d.text)
+                .transition()
+                .duration(100)
+                .ease(d3.easeCubicIn)
+                .style('opacity', 1)
+                
+                
+            
+        }
+
+        function resetTooltip() {
+            // reset tooltip state
+            d3.select("#tooltip").style('opacity', 0)
+
+            // d3.selectAll("circle").style("stroke", "")
         }
 
         
