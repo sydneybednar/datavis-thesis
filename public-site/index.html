@@ -165,6 +165,8 @@
 
     <div id="content">
     <h1>Pro-Ana Communities</h1>
+    <h2>Introduction</h2>
+    <h2>Corpus and Methods</h2>
     <main>
         <section id="scrolly">
             <article>
@@ -258,6 +260,8 @@
         // initialize the scrollama
         var scroller = scrollama();
 
+        var i=0
+
         // generic window resize listener event
         function handleResize() {
             // 1. update height of step elements
@@ -278,6 +282,8 @@
         // scrollama event handlers
         function handleStepEnter(response) {
             console.log(response);
+            i+=1
+            console.log("enter",i)
             // response = { element, direction, index }
 
             // add color to current step only
@@ -286,6 +292,13 @@
             });
 
             // update graphic based on step
+
+            figure.select("img")
+                .transition()
+                .ease(d3.easeExpOut)
+                .duration(100)
+                .style("opacity", 0)
+                .remove()
 
             figure.append("img")
 
@@ -297,6 +310,8 @@
 
         function handleStepExit(response) {
             console.log(response);
+            i -= 1
+            console.log("exit", i)
             // response = { element, direction, index }
 
             figure.select("img")
@@ -322,7 +337,7 @@
                     debug: false
                 })
                 .onStepEnter(handleStepEnter)
-                .onStepExit(handleStepExit);
+                // .onStepExit(handleStepExit);
         }
 
         // kick things off
