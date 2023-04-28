@@ -10,15 +10,19 @@
 
         <style>
             body {
-                margin: 1in;
-                font-family: 'Roboto Mono', sans-serif;
+                margin: 1in auto;
+                max-width: 1000px;
+                font-family: 'Roboto Mono', sans-serif; 
+            }
+            p {
+                font-size: 14pt;
             }
             #scrolly {
                 position: relative;
                 display: -webkit-box;
                 display: -ms-flexbox;
                 display: flex;
-                padding: 1rem;
+                margin-bottom: 1em;
 		    }
             #scrolly>* {
                 -webkit-box-flex: 1;
@@ -28,12 +32,13 @@
 
             article {
                 position: relative;
-                max-width: 40rem;
+                max-width: 60rem;
             }
 
             figure {
                 position: -webkit-sticky;
                 position: sticky;
+                width: 65%;
                 margin: 0;
                 -webkit-transform: translate3d(0, 0, 0);
                 -moz-transform: translate3d(0, 0, 0);
@@ -41,24 +46,12 @@
                 z-index: 0;
             }
 
-            figure p {
-                text-align: center;
-                padding: 1rem;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                -moz-transform: translate(-50%, -50%);
-                -webkit-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
-                font-size: 8rem;
-                font-weight: 900;
-                color: #fff;
-            }
-
             .step {
                 margin: 0 auto 2rem auto;
                 background-color: #f8f8f8;
                 color: rgb(0, 0, 0);
+                min-height: min-content;
+                padding-bottom: 1em;
             }
 
             .step:last-child {
@@ -66,7 +59,6 @@
             }
 
             .step.is-active {
-                /* background-color: rgb(106, 181, 246); */
                 color: black;
             }
 
@@ -76,14 +68,13 @@
             }
 
             .step h2 {
-                text-align: center;
                 padding: 2rem;
-                font-size: 2rem;
+                font-size: 3rem;
             }
             
             .step p {
                 padding: 0 2rem;
-                font-size: 1.5rem;
+                font-size: 2rem;
             }
 
             * {
@@ -92,6 +83,7 @@
             #layout {
                 display: inline-flex;
                 flex-wrap: wrap ;
+                justify-content: center;
             }
             .card {
                 width: 400px;
@@ -144,15 +136,42 @@
             #tooltip{
                 display: inline-block;
                 background-color: white;
-                font-size: 10;
-                width: 150;
-                max-height: 170;
-                overflow-y: auto;
+                font-size: 12;
+                max-width: 400;
+                /* max-height: 170; */
+                /* overflow-y: auto; */
                 overflow-wrap: break-word;
                 padding: 1rem;
                 /* border: 1px solid black; */
                 box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
                 border-radius: 5px;
+            }
+            blockquote {
+                font-size: 1.25em;
+                margin: 1em 0;
+                padding-left: 1em;
+                border-left: 3px solid rgb(55, 53, 47);
+            }
+            .callout {
+                border-radius: 3px;
+                padding: 1rem;
+            }
+            a,
+            a.visited {
+                color: inherit;
+                text-decoration: underline;
+            }
+            #header-article{
+                border-bottom: 1px solid black;
+                margin-bottom: 2em;
+            }
+            .block-color-gray_background {
+                background: rgba(241, 241, 239, 1);
+                margin: 1.25em 0;
+                page-break-inside: avoid;
+            }
+            #pro-ana-note{
+                margin-left: 1em;
             }
         </style>
 
@@ -164,9 +183,55 @@
 <body>
 
     <div id="content">
+    <div id="header-article">
     <h1>Pro-Ana Communities</h1>
-    <h2>Introduction</h2>
+    <p>By Sydney Bednar</p>
+    </div>
+        <div class="page-body">
+            <p id="99bf3a8a-fdb9-4305-932e-66cf67c76ddc" class="">TRIGGER WARNING</p>
+            <h2 id="22b68d8c-0b89-451c-97d1-ce5fc1bcce1b" class="">Introduction</h2>
+            <p id="4af505ab-2088-44ba-8ddd-656eecc001b9" class="">More than <a
+                    href="https://anad.org/eating-disorders-statistics/">9% of the global population</a> will have an eating
+                disorder at some point over their lifetime. About 26% of this population will attempt suicide, and <a
+                    href="https://www.state.sc.us/dmh/anorexia/statistics.htm">only 10%</a> will receive treatment. So where
+                do the other 90% go?</p>
+            <p id="401ee521-c890-4446-b12d-634bf0d6d4a7" class="">When we are affected by untreated diseases, it is common
+                for people to look for support wherever we can. For many of those struggling with eating disorders, this
+                space is on the internet in eating disorder communities. The concept of medical support communities is not
+                new; in fact, a few are remarkably high-functioning such as online communities for chronic pain and cancer.
+                In some eating disorder communities, however, a subculture of pro-ana (pro-anorexia) thinking has
+                infiltrated, and users in these spaces comfortably trade harmful dieting tips and medical misinformation.
+                Although most social media platforms have attempted to moderate these spaces, pro-ana websites continue to
+                exist under the radar as message boards, blogs and q&amp;a threads where users can post about their
+                experiences anonymously. </p>
+            <p id="0a5f8571-aafc-491e-9686-4a34c92f8f58" class="">Surprisingly, existing research is divided on whether
+                pro-ana communities are harmful or helpful and in turn whether we should be intervening or not. Some studies
+                into pro-ana groups have labeled them as <a
+                    href="https://www.tandfonline.com/doi/full/10.1080/02673843.2013.856802">empowering spaces</a> for
+                pro-ana “practitioners” who, through using them, gain a positive sense of selfhood. These researchers argue
+                that pro-ana groups are transgressive, as young members resist cultural critiques of their bodies. Some
+                studies also highlight the importance of pro-ana communities for providing <a
+                    href="https://www.mdpi.com/2227-9032/10/5/928">social support</a>. Researchers have used these findings
+                to suggest places for intervention. Others, however, have described them as spaces which proliferate an
+                incredibly <a href="https://link.springer.com/article/10.1007/s00431-015-2487-7">toxic subculture</a>. They
+                cite pro-ana communities as an “urgent issue,” and they provide guidelines for clinicians, young people,
+                parents, and educators on how to address it. This rigid labeling, however, does not fully capture the
+                complexity of interactions that occur between members of these communities. </p>
+            <p id="03916bf7-4cf3-40af-b226-9569a2d96fe0" class="">Eating disorders can affect anyone, and these communities
+                include the perspectives of people with different genders, ages and cultural backgrounds. So how can we as
+                researchers encompass a group with such diverse experiences? In short, we need to go beyond simplistic
+                labels and try to understand what it is that members of these communities <em>really</em> need. Rather than
+                condemning these groups as harmful or celebrating them as welcoming, we should be asking: how can our
+                understanding of interactions within these groups inform the areas of focus for health care providers,
+                peers, family members and those who are struggling with an eating disorder? </p>
+            <p id="4c977705-f57b-4ed0-9d20-86be0134944c" class="">While there has been some ethnographic research and manual
+                content analysis aimed at understanding the experiences of pro-ana community members, results are limited in
+                scale and require a longer time to conduct a comprehensive study. For my research, I have used text mining
+                approaches to carry out a rapid comparative study on a large dataset of <strong>50,591 posts</strong>. </p>
+        
     <h2>Corpus and Methods</h2>
+        <p id="6dc0cd04-904c-43cf-bf0b-be326f0f9bea" class="">I gathered data from three distinct pro-ana communities: MyProAna, Eating Disorder Central, and EDAnonymous on Reddit. These are widely seen by outsiders and users as pro-ana due to the substantial amount of pro-ana content that circulates on them. Because I wanted to compare communities of different forms, I selected these three by referring to previous studies, online threads, and outbound links from other inactive communities.</p><div class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="f00fce14-3a54-4b41-a9e7-ffe19be16e5e"><div style="font-size:1.5em"><span class="icon">👉</span></div><div id="pro-ana-note" style="width:100%"><em>It is worth noting that there is some disagreement around the definition of “pro-ana” sites. In fact, one study even cited <a href="https://mental.jmir.org/2018/1/e6/">MyProAna as a recovery community</a>. However, for the purpose of this research and based on my own readings of the text, I will be referring to these three communities as pro-ana.</em></div></div><p id="66151801-8966-4661-ac01-701b73d91c1f" class="">Using Selenium and the Reddit API, I created a web scraper to retrieve the text from each post as well as associated metadata such as the username, number of likes, and post time. I collected documents spanning from July 2018 to November 2022 in order to represent more recent topics of discussion. </p><p id="5ee0009f-a8ab-4cc1-bd29-9a5b7e939f0a" class="">After cleaning the data, I implemented a topic modeling algorithm using Tomotopy, which helps to identify the main topics within a corpus of texts. Topic modeling is an unsupervised machine learning method that, by performing iterations of probability assignments, determines how likely it is that<div class="indented"><p id="25177f47-34e6-4584-aef3-a26223ac1bf2" class="">a) a word belongs to each topic and</p><p id="4f0644d9-ad23-4f2b-aea3-e26cd40e7ab2" class="">b) a topic is associated with each document. </p></div></p><p id="d5565642-1c83-4508-a20f-c5e8bc84674c" class="">In the end, the output is a list of the most probable words for that topic sorted in descending order as well as the proportional weight of each topic associated with each document. Because the model is unsupervised, however, it cannot find meaning in these lists of words that define a topic. For the most comprehensive results, we need to combine computational methods with our own manual analysis. So for each topic, I read its 20 most representative posts and assigned a label based on my comprehension of the texts. I also had to determine the optimal number of topics in order to implement the model. To find this number, I tested the model on 5, 10, 15, 20, and 30 topics, and I determined that 10 topics produced the most distinct and representative groups. </p><p>Here’s a walk-through of my process.</p>
+    </div>
     <main>
         <section id="scrolly">
             <article>
@@ -214,6 +279,8 @@
     
         <section id="outro"></section>
     </main>
+
+    
 
     <div id="layout">
         <div id="topic-0" class="container card">
@@ -281,9 +348,6 @@
 
         // scrollama event handlers
         function handleStepEnter(response) {
-            console.log(response);
-            i+=1
-            console.log("enter",i)
             // response = { element, direction, index }
 
             // add color to current step only
@@ -309,9 +373,6 @@
         }
 
         function handleStepExit(response) {
-            console.log(response);
-            i -= 1
-            console.log("exit", i)
             // response = { element, direction, index }
 
             figure.select("img")
@@ -496,7 +557,7 @@
                     .join("rect")
                     .attr("y", d => y(d['word']))
                     .attr("height", y.bandwidth())
-                    .transition() // <---- Here is the transition
+                    .transition() 
                     .duration(1000)
                     .attr("width", d => topChartWidth - y(d['word']))
                     .attr("x", d => x(0))
@@ -588,6 +649,7 @@
 
             var node = chartArea.selectAll('circle')
                 .data(nodesTest)
+                .attr("class", "point")
                 .enter().append('circle')
                 .style('fill', d => color(d.cluster))
                 .on("mouseover", hoverIn)
@@ -692,30 +754,45 @@
 
             d3.select(this).classed("active", true)
 
-            let other = d3.selectAll("circle").filter(function(a){
+            let other = d3.selectAll("circle").filter(function (a) {
                 return a != d
             })
 
             other.classed("active", false).style("stroke", "")
-                 
-            
+
+
             d3.select('#tooltip')
-                .style('left', (e.pageX) + 'px').style('top', (e.pageY + 10) + 'px')
+               .style("opacity", 0)
+                .style('left', function(){
+                    if(e.pageX + 400 < 1400){
+                        return (e.pageX + 10) + 'px'
+                    }
+                    else{
+                        return (e.pageX -410) + 'px'
+                    }
+                })
+                .style('top', (e.pageY ) + 'px')
                 .text(d.text)
                 .transition()
-                .duration(100)
+                .duration(300)
                 .ease(d3.easeCubicIn)
-                .style('opacity', 1)
-                
+                .style('opacity', 1)   
                 
             
         }
 
-        function resetTooltip() {
-            // reset tooltip state
-            d3.select("#tooltip").style('opacity', 0)
+        function equalToEventTarget() {
+            return this == event.target;
+        }
 
-            // d3.selectAll("circle").style("stroke", "")
+        function resetTooltip(e) {
+            if(!e.target.classList.contains("active")){
+                // reset tooltip state
+                d3.select("#tooltip").style('opacity', 0)
+                d3.selectAll("circle").style("stroke", "")
+            }
+
+            
         }
 
         
