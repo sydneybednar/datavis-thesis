@@ -9,6 +9,9 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto Mono">
 
         <style>
+            html {
+                /* transform: scale(0.8); */
+            }
             body {
                 margin: 1in auto;
                 max-width: 1000px;
@@ -52,6 +55,7 @@
                 color: rgb(0, 0, 0);
                 min-height: min-content;
                 padding-bottom: 1em;
+                display: block;
             }
 
             .step:last-child {
@@ -173,6 +177,13 @@
             #pro-ana-note{
                 margin-left: 1em;
             }
+            .tw{
+                border: 3px solid red;
+                background-color:rgb(250, 216, 216);
+                padding: 0.5em;
+                font-size: 11pt;
+            }
+
         </style>
 
         <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -188,7 +199,7 @@
     <p>By Sydney Bednar</p>
     </div>
         <div class="page-body">
-            <p id="99bf3a8a-fdb9-4305-932e-66cf67c76ddc" class="">TRIGGER WARNING</p>
+            <p id="99bf3a8a-fdb9-4305-932e-66cf67c76ddc" class="tw"><strong>TRIGGER WARNING:</strong> This article will discuss personal experiences with eating disorders.</p>
             <h2 id="22b68d8c-0b89-451c-97d1-ce5fc1bcce1b" class="">Introduction</h2>
             <p id="4af505ab-2088-44ba-8ddd-656eecc001b9" class="">More than <a
                     href="https://anad.org/eating-disorders-statistics/">9% of the global population</a> will have an eating
@@ -280,6 +291,116 @@
         <section id="outro"></section>
     </main>
 
+    <div class="page-body", id="analysis">
+        <h2 id="9d16d149-2d78-4b7b-b4f7-9206ecf37da8" class="">What are these communities talking about?</h2>
+        <p id="f8943dc2-8ebd-4fd0-b628-98f9353ed002" class="">Of the ten topics extracted by the model, three surround dieting
+            tips, goal weights, and discussions about calorie counting and restricting, two topics are dedicated to messages
+            which show support or express empathy as well as messages which discuss recovery, and the other five topics all
+            surround what it is like to live with an eating disorder. </p>
+        <p id="0dd8db42-4a86-4e5b-82af-bbde1011b09e" class="">I want to reiterate that although what goes into each topic is
+            algorithmically extracted, the <strong>label</strong> is a human judgment. As I mentioned, the labels I landed on
+            are informed by manual examination of the top words and posts for each topic. </p>
+        <p id="03c69f32-957d-4825-b574-ff5f1d4615ae" class="">Based on previous work and my own preconceptions about eating
+            disorder communities, I assumed that I would find some harmful topics such as dieting tips along with some more
+            hopeful topics such as support, recovery, and empathy. What is most interesting about the results of this model,
+            however, is that half of the topics focus on the experience of having an eating disorder and the challenges that
+            come with it. </p>
+        <p id="91eb9f96-151a-4730-ae62-e72d2310209f" class="">With eating disorders, it can be difficult to get people who are
+            struggling to speak openly and honestly about their experiences, but in these communities, it appears that there is
+            a different set of expectations for self presentation. Many pro-ana communities even have their own principles or
+            rules for members. Eating Disorder Central’s founding principles state that:</p>
+        <blockquote id="200365a3-33cb-46ab-a0ed-dc0e34d93ad9" class="">“We believe those suffering from eating disorders deserve
+            a space where they can be unapologetically themselves and are able to freely express their ED behaviors free from
+            censorship and suppression.”</blockquote>
+        <p id="d43931d6-b187-43f7-87ad-7e4fe1a11358" class="">This emphasis on openness and participation fosters an environment
+            with unique topical trends, and understanding these trends is the first step to uncovering the gaps in current
+            treatment. </p>
+        
+    <div id="most-common", class="row">
+        <div id="card-place-common" class="six columns">
+
+            <p>HERE IS WHERE THE CARDS GO</p>
+            <p>(topic 5 and 8)</p>
+
+        </div>
+        <div class="six columns" style="margin: 0;">
+        <h2 id="70150788-c3d6-4131-aae2-ccf6c2bbf8be" class="">Which topics are the most common?</h2>
+        <p id="7ea6ec1d-92b0-40cf-bdda-a17ca5339ad5" class="">Before running the model, I expected that the most commonly
+            occurring topics would surround dieting and weight loss or emotional support. From the results of this model, we
+            find this to be true: two of the most commonly discussed topics across all of the communities are topic 3
+            (support/empathy) and topic 10 (goal weights), with topic 10 being equally salient across the three communities.
+        </p>
+        <p id="0d0933e7-5ef6-452e-b6b4-578ce888c531" class="">However, I was surprised to find that two other topics are
+            discussed frequently as well: topic 5 (living with an ED) and topic 8 (feeling hungry). In posts that are dominated
+            by these topics, the user candidly describes their experience with an eating disorder, often mentioning feeling
+            misunderstood. One user highlights the issue of generalizing a complex disease:
+        <div class="indented">
+            <blockquote id="345d314f-bbd3-4017-a58e-7c10685d006a" class="">“Making sweeping generalisations to cover an entire
+                anorexia population is never going to be accurate, people have anorexia for many different reasons. For me,
+                it&#x27;s the opposite, it&#x27;s wanting comfort and safety and not wanting to be in an adult world”
+            </blockquote>
+        </div>
+        </p>
+        </div>
+        <div class="row">
+        <p id="237d2e50-0641-4e3f-b4c2-ce57f967de3a" class="">Overall, it was interesting to find that the majority of topics
+            surround the actual experience of having an eating disorder rather than just tips and tricks. It appears that users
+            feel completely comfortable sharing the most challenging aspects of anorexia as well as its repercussions. On top of
+            that, users seek to relate to each other but are not afraid to speak up when they disagree with something that was
+            posted.</p>
+        </div>
+    </div>
+
+    <div id="vary">
+        <div class="row">
+            <div class="six columns">
+            <h2 id="904f35d4-dfbc-48ee-8d36-830224d76102" class="">How do topics vary across communities?</h2>
+            <p id="0ed0b07e-29c0-444e-8b78-cea4cc60dd83" class="">I ran permutation tests to determine the statistically significant
+                differences in topic saliency across communities. I found that topic 5 (living with an ED) is on average more
+                salient in the Reddit community than the other two (13.7% distribution on Reddit vs 10.8% for MPA and 8.7% for EDC).
+                Specifically, this topic is 37.19% more prevalent on Reddit than it is on EDC. We can infer that the nature of
+                Reddit being a threaded social media affords these types of discussions that involve relating and responding to each
+                other. EDC, however, consists of individual responses to a prompt without as much threading as Reddit. </p>
+            
+            <p id="ee1a8809-0574-45e4-8288-5d5b69a2f08a" class="">Most posts on EDC and MPA are ones which take on the form of a
+                journal entry or Q&amp;A. Topic 7 (calorie restriction) fits the Q&amp;A form, and is most often present on EDC and
+                MPA compared to Reddit (14.0% distribution on EDC vs 12.6% on MPA and 7.1% on Reddit). Here’s a post where one user
+                poses a question about restriction:
+            <div class="indented">
+                <blockquote id="ac003c5a-ff59-433e-b5ef-5fad42012a9f" class="">“for example: let&#x27;s say your daily intake goal
+                    is ### calories or less and you eat ### but you burn ###. so your net calories for the day would be ###. for me,
+                    i never feel like that&#x27;s good enough. i will still feel bad about the extra ### calories i ate even though
+                    i burned twice as much. does anyone relate?”</blockquote>
+            </div>
+            </p>
+            <p id="b73e48a9-3357-449d-b091-9e7c6f13ff50" class="">In the case of topic 7, we must also consider the impact of
+                content moderation. Because Reddit is a more popular social media, it is also more moderated, and we often see posts
+                replaced by a message from reddit bot explaining that the post was removed for harmful content. So it’s not
+                surprising that this topic, which has the potential to spread harmful nutritional misinformation, is 96.37% more
+                prevalent on EDC, an unmoderated site, compared to Reddit. </p>
+            </div>
+
+            <div id="card-place-vary1" class="six columns">
+            
+                <p>HERE IS WHERE THE CARDS GO</p>
+                <p>(topic 7)</p>
+            
+            </div>
+        </div>
+
+        <p id="41144a5e-0cac-4fb8-87dc-3ea0600576b8" class="">One reason why I chose MPA as a community of interest was due to
+            <a href="https://mental.jmir.org/2018/1/e6/">this article</a>, which describes MyProAna as a recovery community. But
+            after reading numerous threads on the site, I was not so convinced. While the community guidelines put an emphasis
+            on support, many of the users on this site still discuss pro-anorexia topics. If this labelling were accurate, I
+            would expect that MPA would discuss topic 4 (recovery) and topic 3 (support) significantly more often compared to
+            the other two communities. We do find that when comparing MPA and Reddit, topic 4 (recovery) is 37.02% more salient
+            on MPA. However, compared to EDC, it is only 9.99% more salient. Recovery is also the least salient topic across all
+            three communities. Similarly, topic 3 (support) is 22.33% more salient on MPA compared to EDC, but it is only 8.44%
+            more salient compared to Reddit. </p>
+        <p id="cdf323c2-1cf3-4151-9291-bed5ae38a754" class="">From these results, we can see how a simplistic label does not encapsulate the entire community. </p>
+    </div>
+    </div>
+
     
 
     <div id="layout">
@@ -315,98 +436,94 @@
     </div>
     </div>
 
-    <script id="scroll">
+    <script>
 
-        // using d3 for convenience
-        var main = d3.select("main");
-        var scrolly = main.select("#scrolly");
-        var figure = scrolly.select("figure");
-        var article = scrolly.select("article");
-        var step = article.selectAll(".step");
+    // using d3 for convenience
+    var main = d3.select("main");
+    var scrolly = main.select("#scrolly");
+    var figure = scrolly.select("figure");
+    var article = scrolly.select("article");
+    var step = article.selectAll(".step");
 
-        // initialize the scrollama
-        var scroller = scrollama();
+    // initialize the scrollama
+    var scroller = scrollama();
 
-        var i=0
+    var i = 0
 
-        // generic window resize listener event
-        function handleResize() {
-            // 1. update height of step elements
-            var stepH = Math.floor(window.innerHeight * 0.55);
-            step.style("height", stepH + "px");
+    // generic window resize listener event
+    function handleResize() {
+        // 1. update height of step elements
+        var stepH = Math.floor(window.innerHeight * 0.55);
+        step.style("height", stepH + "px");
 
-            var figureHeight = window.innerHeight / 2;
-            var figureMarginTop = (window.innerHeight - figureHeight) / 2;
+        var figureHeight = window.innerHeight / 2;
+        var figureMarginTop = (window.innerHeight - figureHeight) / 2;
 
-            figure
-                .style("height", figureHeight + "px")
-                .style("top", figureMarginTop + "px");
+        figure
+            .style("height", figureHeight + "px")
+            .style("top", figureMarginTop + "px");
 
-            // 3. tell scrollama to update new element dimensions
-            scroller.resize();
-        }
+        // 3. tell scrollama to update new element dimensions
+        scroller.resize();
+    }
 
-        // scrollama event handlers
-        function handleStepEnter(response) {
-            // response = { element, direction, index }
+    // scrollama event handlers
+    function handleStepEnter(response) {
+        // response = { element, direction, index }
 
-            // add color to current step only
-            step.classed("is-active", function (d, i) {
-                return i === response.index;
-            });
+        // add color to current step only
+        step.classed("is-active", function (d, i) {
+            return i === response.index;
+        });
 
-            // update graphic based on step
+        // update graphic based on step
+        figure.select("img")
+            .transition()
+            .ease(d3.easeExpOut)
+            .duration(100)
+            .style("opacity", 0)
+            .remove()
 
-            figure.select("img")
-                .transition()
-                .ease(d3.easeExpOut)
-                .duration(100)
-                .style("opacity", 0)
-                .remove()
+        figure.append("img")
 
-            figure.append("img")
+        figure.select("img").attr("src", `images/step${response.index + 1}.svg`)
 
-            figure.select("img").attr("src", `images/step${response.index + 1}.svg`)
+        figure.select("img").transition().ease(d3.easeExpIn).duration(100).style("opacity", 1)
 
-            figure.select("img").transition().ease(d3.easeExpIn).duration(100).style("opacity", 1)
+    }
 
-        }
+    function handleStepExit(response) {
+        // response = { element, direction, index }
 
-        function handleStepExit(response) {
-            // response = { element, direction, index }
+        figure.select("img")
+            .transition()
+            .ease(d3.easeExpOut)
+            .duration(100)
+            .style("opacity", 0)
+            .remove()
+    }
 
-            figure.select("img")
-                .transition()
-                .ease(d3.easeExpOut)
-                .duration(100)
-                .style("opacity", 0)
-                .remove()
-        }
+    function init() {
 
-        function init() {
+        // 1. force a resize on load to ensure proper dimensions are sent to scrollama
+        handleResize();
 
-            // 1. force a resize on load to ensure proper dimensions are sent to scrollama
-            handleResize();
+        // 2. setup the scroller passing options
+        // 		this will also initialize trigger observations
+        // 3. bind scrollama event handlers (this can be chained like below)
+        scroller
+            .setup({
+                step: "#scrolly article .step",
+                offset: 0.33,
+                debug: false
+            })
+            .onStepEnter(handleStepEnter)
+        // .onStepExit(handleStepExit);
+    }
 
-            // 2. setup the scroller passing options
-            // 		this will also initialize trigger observations
-            // 3. bind scrollama event handlers (this can be chained like below)
-            scroller
-                .setup({
-                    step: "#scrolly article .step",
-                    offset: 0.33,
-                    debug: false
-                })
-                .onStepEnter(handleStepEnter)
-                // .onStepExit(handleStepExit);
-        }
+    // kick things off
+    init();
 
-        // kick things off
-        init();
-
-    </script>
-
-    <script id="cards">
     const requestData = async () => {
         full = await d3.csv("data/full_data.csv", d3.autoType)
         topWords = await d3.csv("data/top-words.csv", d3.autoType)
@@ -475,11 +592,6 @@
             let cont = d3.select(`div#${chosenTopic}`)
             cont.select("h4#card-title").text(textMap[chosenTopic])
         }
-
-        d3.select('body')
-            .append('div')
-            .attr('id', 'tooltip')
-            .attr('style', 'position: absolute; opacity: 0;');
 
         d3.select('body').on('click', resetTooltip)
 
@@ -630,62 +742,61 @@
                 nodesTest.push(d);
             })
             
-            var simulation = d3.forceSimulation()
+            const simulation = d3.forceSimulation()
                 // keep entire simulation balanced around screen center
                 .force('center', d3.forceCenter(width / 2, height / 2))
-
                 // cluster by section
                 .force('cluster', d3.forceCluster()
                     .centers(function (d) { return clusters[d.cluster]; })
                     .strength(0.5))
-
                 // apply collision with padding
                 .force('collide', d3.forceCollide(function (d) { return d.radius + padding; }))
-
                 .on('tick', layoutTick)
-                .nodes(nodesTest);
+                .nodes(nodesTest)
+                .stop();
 
-            const chartArea = svg.append("g").attr("id", "force");
+            const chartArea = svg.append("g").attr("id", "force").attr("transform", "translate(0,15)");
+            const legArea = svg.append("g")
 
             var node = chartArea.selectAll('circle')
                 .data(nodesTest)
                 .attr("class", "point")
                 .enter().append('circle')
-                .style('fill', d => color(d.cluster))
+                .style('fill', d => lighten(color(d.cluster), d.radius))
                 .on("mouseover", hoverIn)
                 .on("mouseout", hoverOut)
                 .on("click", mouseClick)
                 .on('mousemove', mouseMove);
 
             // legend
-            chartArea.append("circle")
+            legArea.append("circle")
                      .attr("cx", 80)
                      .attr("cy", 20)
                      .attr("r", 6)
                      .style("fill", "crimson")
-            chartArea.append("circle")
+            legArea.append("circle")
                      .attr("cx", 170)
                      .attr("cy", 20)
                      .attr("r", 6)
                      .style("fill", "coral")
-            chartArea.append("circle")
+            legArea.append("circle")
                      .attr("cx", 240)
                      .attr("cy", 20)
                      .attr("r", 6)
                      .style("fill", "cornflowerblue")
-            chartArea.append("text")
+            legArea.append("text")
                      .attr("x", 90)
                      .attr("y", 20)
                      .text("Reddit")
                      .style("font-size", "15px")
                      .attr("alignment-baseline", "middle")
-            chartArea.append("text")
+            legArea.append("text")
                      .attr("x", 180)
                      .attr("y", 20)
                      .text("MPA")
                      .style("font-size", "15px")
                      .attr("alignment-baseline", "middle")
-            chartArea.append("text")
+            legArea.append("text")
                      .attr("x", 250)
                      .attr("y", 20)
                      .text("EDC")
@@ -695,16 +806,51 @@
 
             function layoutTick(e) {
                 node
-                    .attr('cx', function (d) { return d.x; })
-                    .attr('cy', function (d) { return d.y; })
-                    .attr('r', function (d) { return d.radius; });
+                    .attr('cx', function (d) { return d.x = Math.max(d.radius, Math.min(chartWidth-d.radius, d.x)); })
+                    .attr('cy', function (d) { return d.y = Math.max(d.radius, Math.min(chartHeight-d.radius, d.y)); })
+                    .attr('r', function (d) { return d.radius; })
             }
 
-            
+            // instantiate the scrollama
+            var scroller = scrollama();
 
-        }
+            // setup the instance, pass callback functions
+            scroller
+                .setup({
+                    step: ".card",
+                })
+                .onStepEnter((response) => {
+                    simulation.alpha(1).restart()
+                })
+                .onStepExit((response) => {
+                    // simulation.alpha(0)
+                });
+
+                
+
+            }
         populateCard(chosenTopic, d3.select("svg#main"), d3.select("svg#topwords"));
 
+
+        // most common
+
+        // let common = ['topic-4', 'topic-7']
+        // common.forEach(t => {
+
+        //     let place = d3.select("div#card-place").append("div")
+        //         .attr("id", t)
+        //         .attr("class", "container card")
+
+        //     place.html('<div class="row"><h4 id="card-title">....</h4></div>' +
+        //         '<div class="row" id="card-details"><p>Topic description here</p></div>' +
+        //         '<div class="row" id="collapse"><button type = "button" class= "collapsible">See Top Words</button>' +
+        //         '<div class="content"><p>Top words here...</p><svg id="topwords" width="355" height="200" style="border: 1px solid black; background-color:white"></svg></div></div >' +
+        //         '<div class="row" id="chart"><svg id = "main" width = "370" height = "300" style = "border: 1px solid black"></svg></div >' +
+        //         '<div class="row" id="card-footer"><p>FOOTER CONTENT HERE</p></div>')
+
+        //     populateCard(t, place.select("svg#main"), place.select("svg#topwords"))
+
+        // })
 
         topCol.slice(1).forEach(t => {
 
@@ -725,6 +871,18 @@
             populateCard(t, cont.select("svg#main"), cont.select("svg#topwords"))
 
         })
+
+        
+
+
+       function lighten(color, radius) {
+    
+
+            let hclColor = d3.hcl(color);
+            let luma = hclColor.l * (1-radius/13) + 55
+            return d3.rgb(d3.hcl(hclColor.h, hclColor.c, luma));
+
+        }
         
 
 
@@ -760,6 +918,15 @@
 
             other.classed("active", false).style("stroke", "")
 
+            // add tooltip
+            d3.select('body')
+                .append('div')
+                .attr('id', 'tooltip')
+                .attr('style', 'position: absolute; opacity: 0;');
+
+        
+            console.log(d3.select(this).attr("cy"), e.y*0.8)
+
 
             d3.select('#tooltip')
                .style("opacity", 0)
@@ -771,7 +938,7 @@
                         return (e.pageX -410) + 'px'
                     }
                 })
-                .style('top', (e.pageY ) + 'px')
+                .style('top', (e.pageY + 10) + 'px')
                 .text(d.text)
                 .transition()
                 .duration(300)
@@ -788,7 +955,7 @@
         function resetTooltip(e) {
             if(!e.target.classList.contains("active")){
                 // reset tooltip state
-                d3.select("#tooltip").style('opacity', 0)
+                d3.select("#tooltip").style('opacity', 0).remove()
                 d3.selectAll("circle").style("stroke", "")
             }
 
