@@ -7,25 +7,36 @@
         <link rel="stylesheet" type="text/css" href="css/normalize.css">
         <link rel="stylesheet" type="text/css" href="css/skeleton.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto Mono">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
 
         <style>
             html {
                 /* transform: scale(0.8); */
             }
             body {
-                margin: 1in auto;
-                max-width: 1000px;
-                font-family: 'Roboto Mono', sans-serif; 
+                font-family: 'Inter', sans-serif;
+                 
+            }
+            #content{
+                margin: 0 auto;
+                max-width: 900px;
             }
             p {
-                font-size: 14pt;
+                font-size: 16pt;
+            }
+            h2 {
+                font-size: 20pt;
+                font-weight: bolder;
+            }
+            h1{
+                font-weight: bolder;
             }
             #scrolly {
                 position: relative;
                 display: -webkit-box;
                 display: -ms-flexbox;
                 display: flex;
-                margin-bottom: 1em;
+                margin-bottom: 2em;
 		    }
             #scrolly>* {
                 -webkit-box-flex: 1;
@@ -51,11 +62,12 @@
 
             .step {
                 margin: 0 auto 2rem auto;
-                background-color: #f8f8f8;
+                background-color: #eee;
                 color: rgb(0, 0, 0);
                 min-height: min-content;
                 padding-bottom: 1em;
-                display: block;
+                display: flex;
+                flex-direction: column;
             }
 
             .step:last-child {
@@ -73,12 +85,12 @@
 
             .step h2 {
                 padding: 2rem;
-                font-size: 3rem;
+                font-size: 2.5rem;
             }
             
             .step p {
                 padding: 0 2rem;
-                font-size: 2rem;
+                font-size: 14pt;
             }
 
             * {
@@ -95,6 +107,11 @@
                 margin: 1em;
                 box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
                 border-radius: 5px;
+                font-family: 'Roboto Mono', sans-serif;
+            }
+            #card-details{
+                height: 160px;
+                margin-bottom: 1em;
             }
             .collapsible {
                 background-color: #eee;
@@ -149,6 +166,7 @@
                 /* border: 1px solid black; */
                 box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
                 border-radius: 5px;
+                font-family: 'Roboto Mono', sans-serif;
             }
             blockquote {
                 font-size: 1.25em;
@@ -166,11 +184,15 @@
                 text-decoration: underline;
             }
             #header-article{
-                border-bottom: 1px solid black;
+                border-bottom: 1px solid #eee;
                 margin-bottom: 2em;
+                padding-left: 6em;
+                padding-top: 2em;
+                background-color:#eee;
             }
+
             .block-color-gray_background {
-                background: rgba(241, 241, 239, 1);
+                background: #eee;
                 margin: 1.25em 0;
                 page-break-inside: avoid;
             }
@@ -183,6 +205,12 @@
                 padding: 0.5em;
                 font-size: 11pt;
             }
+            .page-body{
+                margin-bottom: 1em;
+            }
+            .text-section {
+                margin-top: 1em;
+            }
 
         </style>
 
@@ -193,56 +221,33 @@
     </head>
 <body>
 
-    <div id="content">
     <div id="header-article">
-    <h1>Pro-Ana Communities</h1>
-    <p>By Sydney Bednar</p>
+        <h1>Pro-Ana Communities</h1>
+        <h5><i>
+            A topic modeling approach to understanding the experiences of those struggling
+            with an eating disorder
+        </i></h5>
+        <p>By Sydney Bednar</p>
     </div>
-        <div class="page-body">
+
+    <div id="content">
+    
+
+    <!-- intro + corpus and methods -->
+    <div class="page-body">
+        <div class="text-section">
             <p id="99bf3a8a-fdb9-4305-932e-66cf67c76ddc" class="tw"><strong>TRIGGER WARNING:</strong> This article will discuss personal experiences with eating disorders.</p>
             <h2 id="22b68d8c-0b89-451c-97d1-ce5fc1bcce1b" class="">Introduction</h2>
-            <p id="4af505ab-2088-44ba-8ddd-656eecc001b9" class="">More than <a
-                    href="https://anad.org/eating-disorders-statistics/">9% of the global population</a> will have an eating
-                disorder at some point over their lifetime. About 26% of this population will attempt suicide, and <a
-                    href="https://www.state.sc.us/dmh/anorexia/statistics.htm">only 10%</a> will receive treatment. So where
-                do the other 90% go?</p>
-            <p id="401ee521-c890-4446-b12d-634bf0d6d4a7" class="">When we are affected by untreated diseases, it is common
-                for people to look for support wherever we can. For many of those struggling with eating disorders, this
-                space is on the internet in eating disorder communities. The concept of medical support communities is not
-                new; in fact, a few are remarkably high-functioning such as online communities for chronic pain and cancer.
-                In some eating disorder communities, however, a subculture of pro-ana (pro-anorexia) thinking has
-                infiltrated, and users in these spaces comfortably trade harmful dieting tips and medical misinformation.
-                Although most social media platforms have attempted to moderate these spaces, pro-ana websites continue to
-                exist under the radar as message boards, blogs and q&amp;a threads where users can post about their
-                experiences anonymously. </p>
-            <p id="0a5f8571-aafc-491e-9686-4a34c92f8f58" class="">Surprisingly, existing research is divided on whether
-                pro-ana communities are harmful or helpful and in turn whether we should be intervening or not. Some studies
-                into pro-ana groups have labeled them as <a
-                    href="https://www.tandfonline.com/doi/full/10.1080/02673843.2013.856802">empowering spaces</a> for
-                pro-ana “practitioners” who, through using them, gain a positive sense of selfhood. These researchers argue
-                that pro-ana groups are transgressive, as young members resist cultural critiques of their bodies. Some
-                studies also highlight the importance of pro-ana communities for providing <a
-                    href="https://www.mdpi.com/2227-9032/10/5/928">social support</a>. Researchers have used these findings
-                to suggest places for intervention. Others, however, have described them as spaces which proliferate an
-                incredibly <a href="https://link.springer.com/article/10.1007/s00431-015-2487-7">toxic subculture</a>. They
-                cite pro-ana communities as an “urgent issue,” and they provide guidelines for clinicians, young people,
-                parents, and educators on how to address it. This rigid labeling, however, does not fully capture the
-                complexity of interactions that occur between members of these communities. </p>
-            <p id="03916bf7-4cf3-40af-b226-9569a2d96fe0" class="">Eating disorders can affect anyone, and these communities
-                include the perspectives of people with different genders, ages and cultural backgrounds. So how can we as
-                researchers encompass a group with such diverse experiences? In short, we need to go beyond simplistic
-                labels and try to understand what it is that members of these communities <em>really</em> need. Rather than
-                condemning these groups as harmful or celebrating them as welcoming, we should be asking: how can our
-                understanding of interactions within these groups inform the areas of focus for health care providers,
-                peers, family members and those who are struggling with an eating disorder? </p>
-            <p id="4c977705-f57b-4ed0-9d20-86be0134944c" class="">While there has been some ethnographic research and manual
-                content analysis aimed at understanding the experiences of pro-ana community members, results are limited in
-                scale and require a longer time to conduct a comprehensive study. For my research, I have used text mining
-                approaches to carry out a rapid comparative study on a large dataset of <strong>50,591 posts</strong>. </p>
-        
-    <h2>Corpus and Methods</h2>
-        <p id="6dc0cd04-904c-43cf-bf0b-be326f0f9bea" class="">I gathered data from three distinct pro-ana communities: MyProAna, Eating Disorder Central, and EDAnonymous on Reddit. These are widely seen by outsiders and users as pro-ana due to the substantial amount of pro-ana content that circulates on them. Because I wanted to compare communities of different forms, I selected these three by referring to previous studies, online threads, and outbound links from other inactive communities.</p><div class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="f00fce14-3a54-4b41-a9e7-ffe19be16e5e"><div style="font-size:1.5em"><span class="icon">👉</span></div><div id="pro-ana-note" style="width:100%"><em>It is worth noting that there is some disagreement around the definition of “pro-ana” sites. In fact, one study even cited <a href="https://mental.jmir.org/2018/1/e6/">MyProAna as a recovery community</a>. However, for the purpose of this research and based on my own readings of the text, I will be referring to these three communities as pro-ana.</em></div></div><p id="66151801-8966-4661-ac01-701b73d91c1f" class="">Using Selenium and the Reddit API, I created a web scraper to retrieve the text from each post as well as associated metadata such as the username, number of likes, and post time. I collected documents spanning from July 2018 to November 2022 in order to represent more recent topics of discussion. </p><p id="5ee0009f-a8ab-4cc1-bd29-9a5b7e939f0a" class="">After cleaning the data, I implemented a topic modeling algorithm using Tomotopy, which helps to identify the main topics within a corpus of texts. Topic modeling is an unsupervised machine learning method that, by performing iterations of probability assignments, determines how likely it is that<div class="indented"><p id="25177f47-34e6-4584-aef3-a26223ac1bf2" class="">a) a word belongs to each topic and</p><p id="4f0644d9-ad23-4f2b-aea3-e26cd40e7ab2" class="">b) a topic is associated with each document. </p></div></p><p id="d5565642-1c83-4508-a20f-c5e8bc84674c" class="">In the end, the output is a list of the most probable words for that topic sorted in descending order as well as the proportional weight of each topic associated with each document. Because the model is unsupervised, however, it cannot find meaning in these lists of words that define a topic. For the most comprehensive results, we need to combine computational methods with our own manual analysis. So for each topic, I read its 20 most representative posts and assigned a label based on my comprehension of the texts. I also had to determine the optimal number of topics in order to implement the model. To find this number, I tested the model on 5, 10, 15, 20, and 30 topics, and I determined that 10 topics produced the most distinct and representative groups. </p><p>Here’s a walk-through of my process.</p>
+            <p id="4af505ab-2088-44ba-8ddd-656eecc001b9" class="">More than <a href="https://anad.org/eating-disorders-statistics/">9% of the global population</a> will have an eating disorder at some point over their lifetime. About 26% of this population will attempt suicide, and <a href="https://www.state.sc.us/dmh/anorexia/statistics.htm">only 10%</a> will receive treatment. So where do the other 90% go?</p><p id="401ee521-c890-4446-b12d-634bf0d6d4a7" class="">When we are affected by untreated diseases, it is common for people to look for support wherever we can. For many of those struggling with eating disorders, this space is on the internet in eating disorder communities. The concept of medical support communities is not new; in fact, a few are remarkably high-functioning such as online communities for chronic pain and cancer. In some eating disorder communities, however, a subculture of pro-ana (pro-anorexia) thinking has infiltrated, and users in these spaces comfortably trade harmful dieting tips and medical misinformation. Although most social media platforms have attempted to moderate these spaces, pro-ana websites continue to exist under the radar as message boards, blogs and q&amp;a threads where users can post about their experiences anonymously. </p><p id="0a5f8571-aafc-491e-9686-4a34c92f8f58" class="">Surprisingly, existing research is divided on whether pro-ana communities are harmful or helpful and in turn whether we should be intervening or not. Some studies into pro-ana groups have labeled them as <a href="https://www.tandfonline.com/doi/full/10.1080/02673843.2013.856802">empowering spaces</a> for pro-ana “practitioners” who, through using them, gain a positive sense of selfhood. These researchers argue that pro-ana groups are transgressive, as young members resist cultural critiques of their bodies. Some studies also highlight the importance of pro-ana communities for providing <a href="https://www.mdpi.com/2227-9032/10/5/928">social support</a>. Researchers have used these findings to suggest places for intervention. Others, however, have described them as spaces which proliferate an incredibly <a href="https://link.springer.com/article/10.1007/s00431-015-2487-7">toxic subculture</a>. They cite pro-ana communities as an “urgent issue,” and they provide guidelines for clinicians, young people, parents, and educators on how to address it. This rigid labeling, however, does not fully capture the complexity of interactions that occur between members of these communities. </p><p id="03916bf7-4cf3-40af-b226-9569a2d96fe0" class="">Eating disorders can affect anyone, and these communities include the perspectives of people with different genders, ages and cultural backgrounds. So how can we as researchers encompass a group with such diverse experiences? In short, we need to go beyond simplistic labels and try to understand what it is that members of these communities <em>really</em> need. Rather than condemning these groups as harmful or celebrating them as welcoming, we should be asking: how can our understanding of interactions within these groups inform the areas of focus for health care providers, peers, family members and those who are struggling with an eating disorder? </p><p id="4c977705-f57b-4ed0-9d20-86be0134944c" class="">While there has been some ethnographic research and manual content analysis aimed at understanding the experiences of pro-ana community members, results are limited in scale and require a longer time to conduct a comprehensive study. For my research, I have used text mining approaches to carry out a rapid comparative study on a large dataset of <strong>50,591 posts</strong>. </p>
+            </div>
+    
+        <div class="text-section">
+            <h2>Corpus and Methods</h2>
+            <p id="6dc0cd04-904c-43cf-bf0b-be326f0f9bea" class="">I gathered data from three distinct pro-ana communities: MyProAna,Eating Disorder Central, and EDAnonymous on Reddit. These are widely seen by outsiders and users as pro-ana due to the substantial amount of pro-ana content that circulates on them. Because I wanted to compare communities of different forms, I selected these three by referring to previous studies, online threads, and outbound links from other inactive communities.</p><div class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="f00fce14-3a54-4b41-a9e7-ffe19be16e5e"><div style="font-size:1.5em"><span class="icon">👉</span></div><div id="pro-ana-note" style="width:100%"><em>It is worth noting that there is some disagreement around the definition of “pro-ana” sites. In fact, one study even cited <a href="https://mental.jmir.org/2018/1/e6/">MyProAna as a recovery community</a>. However, for the purpose of this research and based on my own readings of the text, I will be referring to these three communities as pro-ana.</em></div></div><p id="66151801-8966-4661-ac01-701b73d91c1f" class="">Using Selenium and the Reddit API, I created a web scraper to retrieve the text from each post as well as associated metadata such as the username, number of likes, and post time. I collected documents spanning from July 2018 to November 2022 in order to represent more recent topics of discussion. </p><p id="5ee0009f-a8ab-4cc1-bd29-9a5b7e939f0a" class="">After cleaning the data, I implemented a topic modeling algorithm using Tomotopy, which helps to identify the main topics within a corpus of texts. Topic modeling is an unsupervised machine learning method that, by performing iterations of probability assignments, determines how likely it is that<div class="indented"><p id="25177f47-34e6-4584-aef3-a26223ac1bf2" class="">a) a word belongs to each topic and</p><p id="4f0644d9-ad23-4f2b-aea3-e26cd40e7ab2" class="">b) a topic is associated with each document. </p></div></p><p id="d5565642-1c83-4508-a20f-c5e8bc84674c" class="">In the end, the output is a list of the most probable words for that topic sorted in descending order as well as the proportional weight of each topic associated with each document. Because the model is unsupervised, however, it cannot find meaning in these lists of words that define a topic. For the most comprehensive results, we need to combine computational methods with our own manual analysis. So for each topic, I read its 20 most representative posts and assigned a label based on my comprehension of the texts. I also had to determine the optimal number of topics in order to implement the model. To find this number, I tested the model on 5, 10, 15, 20, and 30 topics, and I determined that 10 topics produced the most distinct and representative groups. </p><p>Here’s a walk-through of my process.</p>
+        </div>
     </div>
+
+    <!-- scroller -->
     <main>
         <section id="scrolly">
             <article>
@@ -284,125 +289,234 @@
             </article>
     
             <figure>
-                <img src="images/step1.svg"></img>
+                <img src="images/step1.svg" style="width: 700px;"></img>
             </figure>
         </section>
     
         <section id="outro"></section>
     </main>
 
+    <!-- topic model analysis -->
     <div class="page-body", id="analysis">
-        <h2 id="9d16d149-2d78-4b7b-b4f7-9206ecf37da8" class="">What are these communities talking about?</h2>
-        <p id="f8943dc2-8ebd-4fd0-b628-98f9353ed002" class="">Of the ten topics extracted by the model, three surround dieting
-            tips, goal weights, and discussions about calorie counting and restricting, two topics are dedicated to messages
-            which show support or express empathy as well as messages which discuss recovery, and the other five topics all
-            surround what it is like to live with an eating disorder. </p>
-        <p id="0dd8db42-4a86-4e5b-82af-bbde1011b09e" class="">I want to reiterate that although what goes into each topic is
-            algorithmically extracted, the <strong>label</strong> is a human judgment. As I mentioned, the labels I landed on
-            are informed by manual examination of the top words and posts for each topic. </p>
-        <p id="03c69f32-957d-4825-b574-ff5f1d4615ae" class="">Based on previous work and my own preconceptions about eating
-            disorder communities, I assumed that I would find some harmful topics such as dieting tips along with some more
-            hopeful topics such as support, recovery, and empathy. What is most interesting about the results of this model,
-            however, is that half of the topics focus on the experience of having an eating disorder and the challenges that
-            come with it. </p>
-        <p id="91eb9f96-151a-4730-ae62-e72d2310209f" class="">With eating disorders, it can be difficult to get people who are
-            struggling to speak openly and honestly about their experiences, but in these communities, it appears that there is
-            a different set of expectations for self presentation. Many pro-ana communities even have their own principles or
-            rules for members. Eating Disorder Central’s founding principles state that:</p>
-        <blockquote id="200365a3-33cb-46ab-a0ed-dc0e34d93ad9" class="">“We believe those suffering from eating disorders deserve
-            a space where they can be unapologetically themselves and are able to freely express their ED behaviors free from
-            censorship and suppression.”</blockquote>
-        <p id="d43931d6-b187-43f7-87ad-7e4fe1a11358" class="">This emphasis on openness and participation fosters an environment
-            with unique topical trends, and understanding these trends is the first step to uncovering the gaps in current
-            treatment. </p>
-        
-    <div id="most-common", class="row">
-        <div id="card-place-common" class="six columns">
-
-            <p>HERE IS WHERE THE CARDS GO</p>
-            <p>(topic 5 and 8)</p>
-
+        <div id="general" class="text-section">
+            <h2 id="9d16d149-2d78-4b7b-b4f7-9206ecf37da8" class="">What are these communities talking about?</h2>
+            <p id="f8943dc2-8ebd-4fd0-b628-98f9353ed002" class="">Of the ten topics extracted by the model, three surround dieting tips, goal weights, and discussions about calorie
+            counting and restricting, two are dedicated to messages which show support or express empathy as well as messages which
+            discuss recovery, and the other five topics all surround what it is like to live with an eating disorder. </p>
+            <p id="0dd8db42-4a86-4e5b-82af-bbde1011b09e" class="">I want to reiterate that although what goes into each topic is
+                algorithmically extracted, the <strong>label</strong> is a human judgment. As I mentioned, the labels I landed on
+                are informed by manual examination of the top words and posts for each topic. </p>
+            <p id="03c69f32-957d-4825-b574-ff5f1d4615ae" class="">Many current studies, such as <a
+                    href="https://doi.org/10.1080/10640266.2010.511918">this one</a>, analyze eating disorder communities under two
+                umbrellas: social support and eating disorder specific content. So based on previous work and my initial readings of
+                threads in eating disorder communities, I assumed that I would find some harmful topics such as dieting tips along
+                with some more hopeful topics such as support, recovery, and empathy. What is most interesting about the results of
+                this model, however, is that half of the topics focus on the experience of having an eating disorder and the
+                challenges that come with it. </p>
+            <p id="91eb9f96-151a-4730-ae62-e72d2310209f" class="">With eating disorders, it can be difficult to get people who are
+                struggling to speak openly and honestly about their experiences. Specifically, as <a
+                    href="https://doi.org/10.1002/erv.857">this retrospective study</a> found, individuals with eating disorders
+                often deliberately conceal their disorders, thus refusing to recognize their own condition. In these online
+                communities, however, it appears that there is a different set of expectations for self presentation. Although we
+                cannot exactly assess the authenticity of this honesty, we have reason to believe that the social norms of pro-ana
+                communities differ from in-person interactions. </p>
+            <p id="41ed6a2e-6a48-4b34-acaa-60bed9c481ac" class="">Many pro-ana communities even have their own principles or rules
+                for members. Eating Disorder Central’s founding principles state that:</p>
+            <blockquote id="200365a3-33cb-46ab-a0ed-dc0e34d93ad9" class="">“We believe those suffering from eating disorders deserve
+                a space where they can be unapologetically themselves and are able to freely express their ED behaviors free from
+                censorship and suppression.”</blockquote>
+            <p id="d43931d6-b187-43f7-87ad-7e4fe1a11358" class="">This emphasis on openness and participation fosters an environment
+                with unique topical trends, and understanding these trends is the first step to uncovering the gaps in current
+                treatment. </p>
         </div>
-        <div class="six columns" style="margin: 0;">
-        <h2 id="70150788-c3d6-4131-aae2-ccf6c2bbf8be" class="">Which topics are the most common?</h2>
-        <p id="7ea6ec1d-92b0-40cf-bdda-a17ca5339ad5" class="">Before running the model, I expected that the most commonly
-            occurring topics would surround dieting and weight loss or emotional support. From the results of this model, we
-            find this to be true: two of the most commonly discussed topics across all of the communities are topic 3
-            (support/empathy) and topic 10 (goal weights), with topic 10 being equally salient across the three communities.
-        </p>
-        <p id="0d0933e7-5ef6-452e-b6b4-578ce888c531" class="">However, I was surprised to find that two other topics are
-            discussed frequently as well: topic 5 (living with an ED) and topic 8 (feeling hungry). In posts that are dominated
-            by these topics, the user candidly describes their experience with an eating disorder, often mentioning feeling
-            misunderstood. One user highlights the issue of generalizing a complex disease:
-        <div class="indented">
-            <blockquote id="345d314f-bbd3-4017-a58e-7c10685d006a" class="">“Making sweeping generalisations to cover an entire
-                anorexia population is never going to be accurate, people have anorexia for many different reasons. For me,
-                it&#x27;s the opposite, it&#x27;s wanting comfort and safety and not wanting to be in an adult world”
-            </blockquote>
-        </div>
-        </p>
-        </div>
-        <div class="row">
-        <p id="237d2e50-0641-4e3f-b4c2-ce57f967de3a" class="">Overall, it was interesting to find that the majority of topics
-            surround the actual experience of having an eating disorder rather than just tips and tricks. It appears that users
-            feel completely comfortable sharing the most challenging aspects of anorexia as well as its repercussions. On top of
-            that, users seek to relate to each other but are not afraid to speak up when they disagree with something that was
-            posted.</p>
-        </div>
-    </div>
-
-    <div id="vary">
-        <div class="row">
-            <div class="six columns">
-            <h2 id="904f35d4-dfbc-48ee-8d36-830224d76102" class="">How do topics vary across communities?</h2>
-            <p id="0ed0b07e-29c0-444e-8b78-cea4cc60dd83" class="">I ran permutation tests to determine the statistically significant
-                differences in topic saliency across communities. I found that topic 5 (living with an ED) is on average more
-                salient in the Reddit community than the other two (13.7% distribution on Reddit vs 10.8% for MPA and 8.7% for EDC).
-                Specifically, this topic is 37.19% more prevalent on Reddit than it is on EDC. We can infer that the nature of
-                Reddit being a threaded social media affords these types of discussions that involve relating and responding to each
-                other. EDC, however, consists of individual responses to a prompt without as much threading as Reddit. </p>
             
-            <p id="ee1a8809-0574-45e4-8288-5d5b69a2f08a" class="">Most posts on EDC and MPA are ones which take on the form of a
-                journal entry or Q&amp;A. Topic 7 (calorie restriction) fits the Q&amp;A form, and is most often present on EDC and
-                MPA compared to Reddit (14.0% distribution on EDC vs 12.6% on MPA and 7.1% on Reddit). Here’s a post where one user
-                poses a question about restriction:
-            <div class="indented">
-                <blockquote id="ac003c5a-ff59-433e-b5ef-5fad42012a9f" class="">“for example: let&#x27;s say your daily intake goal
-                    is ### calories or less and you eat ### but you burn ###. so your net calories for the day would be ###. for me,
-                    i never feel like that&#x27;s good enough. i will still feel bad about the extra ### calories i ate even though
-                    i burned twice as much. does anyone relate?”</blockquote>
-            </div>
-            </p>
-            <p id="b73e48a9-3357-449d-b091-9e7c6f13ff50" class="">In the case of topic 7, we must also consider the impact of
-                content moderation. Because Reddit is a more popular social media, it is also more moderated, and we often see posts
-                replaced by a message from reddit bot explaining that the post was removed for harmful content. So it’s not
-                surprising that this topic, which has the potential to spread harmful nutritional misinformation, is 96.37% more
-                prevalent on EDC, an unmoderated site, compared to Reddit. </p>
+        <div id="most-common" class="text-section">
+
+            <!-- column for card -->
+            <div id="card-place-common" class="six columns" style="margin-right: 1em;">
             </div>
 
-            <div id="card-place-vary1" class="six columns">
-            
-                <p>HERE IS WHERE THE CARDS GO</p>
-                <p>(topic 7)</p>
-            
+            <!-- column for text -->
+            <div class="six columns" style="margin: 0;">
+                <h2 id="70150788-c3d6-4131-aae2-ccf6c2bbf8be" class="">Which topics are the most common?</h2>
+                <p id="7ea6ec1d-92b0-40cf-bdda-a17ca5339ad5" class="">Before running the model, as I mentioned earlier, I expected that the most commonly occurring topics would surround
+                dieting and weight loss or emotional support. From the results of this model, we find this to be true: two of the most
+                commonly discussed topics across all of the communities are topic 3 (support/empathy) and topic 10 (goal weights), with
+                topic 10 being equally salient across the three communities. </p>
+                <p id="0d0933e7-5ef6-452e-b6b4-578ce888c531" class="">However, I was surprised to find that two other topics are
+                    discussed frequently as well: topic 5 (living with an ED) and topic 8 (feeling hungry). In posts that are dominated
+                    by these topics, users candidly describe their experiences with an eating disorder, often mentioning feeling
+                    misunderstood. One user highlights the issue of generalizing a complex disease:
+                <div class="indented">
+                    <blockquote id="345d314f-bbd3-4017-a58e-7c10685d006a" class="">“Making sweeping generalisations to cover an entire
+                        anorexia population is never going to be accurate, people have anorexia for many different reasons. For me,
+                        it&#x27;s the opposite, it&#x27;s wanting comfort and safety and not wanting to be in an adult world”
+                    </blockquote>
+                </div>
+                </p>
+                <p id="a85caac4-17cb-4a84-b3e3-8b160a6e8ce7" class="">A previous study which analyzed content on pro-ana blogs described
+                    them as <a href="https://www.tandfonline.com/doi/full/10.1080/10640266.2013.827538">platforms for social
+                        support</a>. Topics 5 and 8 from my model align with their finding that “reciprocal self-disclosure” is a
+                    specific form of social support that “may be one of the primary ways in which pro-ana blogs facilitate the sense of
+                    virtual community among their members.” </p>
+            </div>
+
+            <!-- row wrap below card -->
+            <div class="row">
+                <p id="237d2e50-0641-4e3f-b4c2-ce57f967de3a" class="">Overall, it was interesting to find that the majority of topics surround the actual experience of having an eating
+                disorder rather than just dieting tips and tricks, which is the common preconception of what content is like on pro-ana
+                communities. It appears that users feel completely comfortable sharing the most challenging aspects of anorexia as well
+                as its repercussions. On top of that, users seek to relate to each other but are not afraid to speak up when they
+                disagree with something that was posted.</p>
             </div>
         </div>
 
-        <p id="41144a5e-0cac-4fb8-87dc-3ea0600576b8" class="">One reason why I chose MPA as a community of interest was due to
-            <a href="https://mental.jmir.org/2018/1/e6/">this article</a>, which describes MyProAna as a recovery community. But
-            after reading numerous threads on the site, I was not so convinced. While the community guidelines put an emphasis
-            on support, many of the users on this site still discuss pro-anorexia topics. If this labelling were accurate, I
-            would expect that MPA would discuss topic 4 (recovery) and topic 3 (support) significantly more often compared to
-            the other two communities. We do find that when comparing MPA and Reddit, topic 4 (recovery) is 37.02% more salient
-            on MPA. However, compared to EDC, it is only 9.99% more salient. Recovery is also the least salient topic across all
-            three communities. Similarly, topic 3 (support) is 22.33% more salient on MPA compared to EDC, but it is only 8.44%
-            more salient compared to Reddit. </p>
-        <p id="cdf323c2-1cf3-4151-9291-bed5ae38a754" class="">From these results, we can see how a simplistic label does not encapsulate the entire community. </p>
-    </div>
+        <div id="interest", class="text-section">
+            <div class="row">
+                <!-- column for text -->
+                <div class="six columns" style="margin: 0;">
+                    <h2>What's interesting here?</h2>
+                    <p>One topic that I want to highlight is topic 9 (triggers). This topic is not the most popular one across all three
+                    communities, and it is not more present on one community relative to another. While triggers are not an unexpected
+                    topic, I was surprised that conversations focused on celebrities and media. Many posts describe specific films,
+                    television shows, or famous people who trigger their ED. Interestingly, not all of these posts are referring to
+                    “triggers” in a negative way.</p>
+                    <p>The reason I want to point out this topic is because I think it is
+                    a good example of the limitations of this model. Although the model grouped these posts together as having the same dominant topic, the sentiment of each post varies. Some posts condemn celebrities and influencers for being
+                    triggering like this one:</p>
+                </div>
+
+                <!-- place for card -->
+                <div id="card-place-interest" class="six columns">
+                </div>
+
+
+            </div>
+            <div class="row">
+                <p id="8c873dda-eac5-4b53-8c22-eb9a38f7c9ae" class="">  
+                <div class="indented">
+                    <blockquote id="b07a7acc-71ad-4541-91aa-5ed492f63247" class="">“I find her videos so triggering. And I hate how she
+                        always points out body checks while including them in her videos. Like she is criticizing them but then also
+                        getting views off of them and giving them even more attention. If she really has a problem with body checks then
+                        why not cut them off or even avoid stitching videos with them altogether??”</blockquote>
+                </div>
+                </p>
+                <p id="a21ab67f-dc3d-4baf-a977-45fc7021f880" class="">Meanwhile, other posts describe triggering content as
+                    “therapeutic” like this one:
+                <div class="indented">
+                    <blockquote id="857aec65-de61-4942-aac9-4d063cc971d1" class="">“did NOT expect the music video for anti hero to be
+                        that ed heavy but i’m kinda glad tbh. it’s therapeutic.”</blockquote>
+                </div>
+                </p>
+                <p id="d00d3ea4-9c83-4202-89d5-21157a38d6c2" class="">Yes, both of these posts are referring to media and triggers, but
+                    do they really mean the same thing? I would argue that they don’t. In the first one, the user is describing posting
+                    ED content as something harmful and painful. In the second, the user says they are comforted by ED content. Other
+                    posts with high salience of this topic also use the word trigger in the context of encouraging or motivating their
+                    ED. Because of this inconsistency, topic 9 was difficult to label. </p>
+            </div>
+        </div>
+
+        <div id="vary" class="text-section">
+            <!-- row 1: no cards -->
+            <div class="row">
+                <h2 id="904f35d4-dfbc-48ee-8d36-830224d76102" class="">How do topics vary across communities?</h2>
+                <p id="0ed0b07e-29c0-444e-8b78-cea4cc60dd83" class="">I ran permutation tests to determine the statistically significant differences in topic saliency across communities. All
+                of the results, including average saliency and percent difference, that I am going to cite here were statistically
+                significant. I found that topic 5 (living with an ED) is on average more salient in the Reddit community than the other
+                two (13.7% distribution on Reddit vs 10.8% for MPA and 8.7% for EDC). Specifically, this topic is 37.19% more prevalent
+                on Reddit than it is on EDC. We can infer that the nature of Reddit being a threaded social media affords these types of
+                discussions that involve relating and responding to each other. EDC, however, consists of individual responses to a
+                prompt without as much threading as Reddit. </p>
+            </div>
+
+
+            <!-- row 2: text on left card on right -->
+            <div class="row">
+                <!-- text columns -->
+                <div class="six columns">
+                    <p id="ee1a8809-0574-45e4-8288-5d5b69a2f08a" class="">Most posts on EDC and MPA are ones which take on the form of a journal entry or Q&amp;A. Topic 7 (calorie restriction)
+                    fits the Q&amp;A form, and is most often present on EDC and MPA compared to Reddit (14.0% distribution on EDC vs 12.6%
+                    on MPA and 7.1% on Reddit). Here’s a post where one user poses a question about restriction (I have replaced numerics
+                    with a # sign to draw your attention to the structure of this post rather than the numbers themselves):<div
+                        class="indented">
+                        <blockquote id="ac003c5a-ff59-433e-b5ef-5fad42012a9f" class="">“for example: let&#x27;s say your daily intake goal
+                            is ### calories or less and you eat ### but you burn ###. so your net calories for the day would be ###. for me,
+                            i never feel like that&#x27;s good enough. i will still feel bad about the extra ### calories i ate even though
+                            i burned twice as much. does anyone relate?”</blockquote>
+                    </div>
+                    </p>
+                    <p>In the case of topic 7, we must also consider the impact of
+                    content moderation. </p>
+                </div>
+
+                <!-- card column -->
+                <div id="card-place-vary1" class="six columns">
+                
+                
+                </div>
+            </div>
+
+            <!-- row 3: below card wrap -->
+            <div class="row">
+                <p id="b73e48a9-3357-449d-b091-9e7c6f13ff50" class="">Because Reddit is a more popular social media, it is also more moderated, and we often see posts replaced by a message
+                from reddit bot explaining that the post was removed for harmful content. So it’s not surprising that this topic, which
+                has the potential to spread harmful nutritional misinformation, is 96.37% more prevalent on EDC, an unmoderated site,
+                compared to Reddit. </p>
+            </div>
+              
+        </div>
+
+        <div id="vary2" class="text-section">
+            
+            <div class="row">
+                <div id="card-place-vary2" class="six columns">
+                
+                </div>
+                <div class="six columns">
+                    <p id="41144a5e-0cac-4fb8-87dc-3ea0600576b8" class="">One reason why I chose MPA as a community of interest was due to <a href="https://mental.jmir.org/2018/1/e6/">this
+                        article</a>, which describes MyProAna as a recovery community. But after reading numerous threads on the site, I was
+                    not so convinced. While the community guidelines put an emphasis on support, many of the users on this site still
+                    discuss pro-anorexia topics. </p>
+                    
+                    <p>If this labelling were accurate, I would expect that MPA would discuss topic 4 (recovery)
+                    and topic 3 (support) significantly more often compared to the other two communities. We do find that when comparing MPA
+                    and Reddit, topic 4 (recovery) is 37.02% more salient on MPA. However, compared to EDC, it is only 9.99% more salient.
+                    Recovery is also the least salient topic across all three communities. Similarly, topic 3 (support) is 22.33% more
+                    salient on MPA compared to EDC, but it is only 8.44% more salient compared to Reddit. </p>
+                    <p id="cdf323c2-1cf3-4151-9291-bed5ae38a754" class="">From these results, we can see how a simplistic label does not
+                        encapsulate the entire community.</p>
+                </div>
+            
+            
+            </div>
+        </div>
+   
+        <!-- conclusion -->
+        <div id="conclusion" class="text-section">
+            <h2>Where do we go from here?</h2>
+            <p id="daff5a9a-6134-4cd1-bc51-046700d119c3" class="">Eating disorders are incredibly under-treated, and they need to be
+                addressed more seriously. In order to do so, we need to put a conscious effort into understanding the complicated
+                emotions and behaviors of those who are struggling. While eating disorder treatment has come a long way, it is still
+                de-prioritized and neglected compared to other disorders such as substance abuse. My research examined three pro-ana
+                communities, but future work should continue to use computational methods to look at an even larger number of
+                communities in order to prescribe the most effective solution. </p>
+            <p id="d26151ff-9955-4005-99b7-9b5b43d1aa6e" class="">Intervention should go beyond just shutting down these sites or
+                directing people toward ones that are “better” based on subjective opinion. The reality is that for every site that
+                is shut down or moderated, another site will replace it. Instead, we should be
+                <em><em><em><em><em><em><em><em><em>listening</em></em></em></em></em></em></em></em></em> to what people are saying
+                on these communities that they are <em>not</em> saying to a parent, a therapist, or a friend. And we should ask
+                ourselves why that is.</p>
+            <p id="75e51a63-144f-40fe-830f-52376a48db9e" class="">The fact that people feel more comfortable sharing their
+                experiences honestly and openly with anonymous strangers online than with the people who are closest to them should
+                be enough to tell us that something needs to change. </p>
+        </div>
+
     </div>
 
     
+    
 
+    <h2>Explore all 10 topics</h2>
     <div id="layout">
         <div id="topic-0" class="container card">
             <div class="row">
@@ -434,6 +548,7 @@
             </div>
         </div>
     </div>
+
     </div>
 
     <script>
@@ -457,7 +572,7 @@
         step.style("height", stepH + "px");
 
         var figureHeight = window.innerHeight / 2;
-        var figureMarginTop = (window.innerHeight - figureHeight) / 2;
+        var figureMarginTop = (window.innerHeight - figureHeight)/2;
 
         figure
             .style("height", figureHeight + "px")
@@ -470,6 +585,7 @@
     // scrollama event handlers
     function handleStepEnter(response) {
         // response = { element, direction, index }
+        console.log(response)
 
         // add color to current step only
         step.classed("is-active", function (d, i) {
@@ -477,16 +593,21 @@
         });
 
         // update graphic based on step
-        figure.select("img")
-            .transition()
-            .ease(d3.easeExpOut)
-            .duration(100)
-            .style("opacity", 0)
-            .remove()
+        if (! (response.index==0 && response.direction=="down")){
+            console.log("yes")
+            figure.select("img")
+                .transition()
+                .ease(d3.easeExpOut)
+                .duration(100)
+                .style("opacity", 0)
+                .remove()
+
+        }
+        
 
         figure.append("img")
 
-        figure.select("img").attr("src", `images/step${response.index + 1}.svg`)
+        figure.select("img").attr("src", `images/step${response.index + 1}.svg`).attr("width", "700px")
 
         figure.select("img").transition().ease(d3.easeExpIn).duration(100).style("opacity", 1)
 
@@ -514,7 +635,7 @@
         scroller
             .setup({
                 step: "#scrolly article .step",
-                offset: 0.33,
+                offset: 0.5,
                 debug: false
             })
             .onStepEnter(handleStepEnter)
@@ -573,8 +694,8 @@
 
         console.log(radData)
         
-        // dict for text
-        let textMap = {"topic-0": "TOPIC 1: DIET FOODS",
+        // dicts for text
+        let titleMap = {"topic-0": "TOPIC 1: DIET FOODS",
                        "topic-1": "TOPIC 2: SHAME FROM AN ED",
                        "topic-2": "TOPIC 3: SUPPORT AND EMPATHY",
                        "topic-3": "TOPIC 4: RECOVERY",
@@ -586,14 +707,30 @@
                        "topic-9": "TOPIC 10: GOAL WEIGHTS"
         }
 
+        let descMap = {
+            "topic-0": "This topic surrounds low-calorie or “safe” foods to eat throughout the day. Posts associated with this topic often contain false nutritional information, which can encourage and worsen an ED.",
+            "topic-1": "This topic focuses on stories of embarrassment or shame from having an ED. Posts associated with this topic express suffering and self-loathing. Many posts are in the form of stories and appear to be confessional.",
+            "topic-2": "This topic consists of encouraging messages, wishing others well and expressing empathy for the situation of another. Encouraging posts associated with this topic point to the support system that a community like this can provide a person who might feel like they are suffering alone.",
+            "topic-3": "This topic discussed the physical repercussions from having an ED as well as from going through recovery. Many posts take on the form of advice, and the tone of voice is very definitive, stating medical “facts” that may or may not be accurate.",
+            "topic-4": "This topic discusses the differing experiences of living with an ED and the possibility of seeking out help. Not all posts here are encouraging recovery, but each post shares a personal opinion on what having an ED means to them.",
+            "topic-5": "This topic surrounds body dysmorphia and insecurity. Some posts exude feelings of self-hatred and criticism while others speak about parts of their body that they track their weight loss with.",
+            "topic-6": "This topic discusses restricting daily calorie counts and exercise habits to burn more calories. Some posts take the form of personal journals while others seek advice. Similar to topic 1, many posts contain unhealthy and dangerous habits.",
+            "topic-7": "This topic discusses the feeling of hunger and the effects of restriction on the body and mind. Some posts express positive emotions and pride for this feeling while others express frustration and lack of control.",
+            "topic-8": "This topic consists of posts surrounding triggers. These posts are often stories about comments made by celebrities, friends, significant others, and adults in the users’ lives.",
+            "topic-9": "This topic discusses goal weights and BMIs. Most posts take on the form of a rant about lack of progress toward weight loss, with many users expressing frustration."
+        }
+
         let chosenTopic = "topic-0"
 
         function updateText(chosenTopic){
             let cont = d3.select(`div#${chosenTopic}`)
-            cont.select("h4#card-title").text(textMap[chosenTopic])
+            cont.select("h4#card-title").text(titleMap[chosenTopic])
+            cont.select("div#card-details").select("p").text(descMap[chosenTopic]).style("font-size", 14)
         }
 
         d3.select('body').on('click', resetTooltip)
+
+        collide = new Array
 
         function populateCard(chosenTopic, svg, topW) {
 
@@ -630,20 +767,17 @@
                 const wordArea = topW.append("g").attr("id", "bars")
                     .attr("transform", `translate(${margins.left}, ${margins.top})`)
 
-                // Y axis
+                
                 let selectWords = topWords.filter(function (d) {
                     let top = parseInt(chosenTopic.slice(-1))
                     return d.topic == top
                 })
+
+                // Y axis
                 var y = d3.scaleBand()
                     .range([0, topChartHeight])
                     .domain(selectWords.map(function (d) { return d.word; }))
                     .padding(0.2);
-                wordArea.append("g")
-                    .call(d3.axisLeft(y).tickSize(0))
-                    .selectAll("text")
-                    // .attr("transform", "translate(-10,0)rotate(-45)")
-                    .style("text-anchor", "end");
 
                 // Add X axis
                 var xExtent = d3.extent(selectWords, d => d['proba'])
@@ -661,10 +795,6 @@
                 var barColor = d3.scaleSequential(d3.interpolateOrRd)
                     .domain(xExtent)
 
-                // set font
-                d3.selectAll("text").attr("font-family", "Roboto Mono")
-
-
                 wordArea.selectAll("rects").data(selectWords)
                     .join("rect")
                     .attr("y", d => y(d['word']))
@@ -674,6 +804,14 @@
                     .attr("width", d => topChartWidth - y(d['word']))
                     .attr("x", d => x(0))
                     .attr("fill", d => barColor(d['proba']))
+                
+                wordArea.append("g")
+                    .call(d3.axisLeft(y).tickSize(0))
+                    .selectAll("text")
+                    .style("text-anchor", "end");
+
+                // set font
+                d3.selectAll("text").attr("font-family", "Roboto Mono")
 
             }
             
@@ -742,18 +880,24 @@
                 nodesTest.push(d);
             })
             
-            const simulation = d3.forceSimulation()
+            var simulation = d3.forceSimulation()
                 // keep entire simulation balanced around screen center
-                .force('center', d3.forceCenter(width / 2, height / 2))
+                .force('center', d3.forceCenter(chartWidth / 2, chartHeight / 2).strength(1))
                 // cluster by section
                 .force('cluster', d3.forceCluster()
                     .centers(function (d) { return clusters[d.cluster]; })
-                    .strength(0.5))
+                    .strength(1))
                 // apply collision with padding
-                .force('collide', d3.forceCollide(function (d) { return d.radius + padding; }))
                 .on('tick', layoutTick)
-                .nodes(nodesTest)
-                .stop();
+                .nodes(nodesTest);
+
+
+            var sim = simulation.force('collide', d3.forceCollide(function (d) { return d.radius + padding; })).stop();
+
+            collide.push({
+                topic : chosenTopic,
+                simStore : sim
+            })
 
             const chartArea = svg.append("g").attr("id", "force").attr("transform", "translate(0,15)");
             const legArea = svg.append("g")
@@ -766,7 +910,6 @@
                 .on("mouseover", hoverIn)
                 .on("mouseout", hoverOut)
                 .on("click", mouseClick)
-                .on('mousemove', mouseMove);
 
             // legend
             legArea.append("circle")
@@ -810,47 +953,14 @@
                     .attr('cy', function (d) { return d.y = Math.max(d.radius, Math.min(chartHeight-d.radius, d.y)); })
                     .attr('r', function (d) { return d.radius; })
             }
-
-            // instantiate the scrollama
-            var scroller = scrollama();
-
-            // setup the instance, pass callback functions
-            scroller
-                .setup({
-                    step: ".card",
-                })
-                .onStepEnter((response) => {
-                    simulation.alpha(1).restart()
-                })
-                .onStepExit((response) => {
-                    // simulation.alpha(0)
-                });
-
+                
                 
 
-            }
+        }
+            
         populateCard(chosenTopic, d3.select("svg#main"), d3.select("svg#topwords"));
-
-
-        // most common
-
-        // let common = ['topic-4', 'topic-7']
-        // common.forEach(t => {
-
-        //     let place = d3.select("div#card-place").append("div")
-        //         .attr("id", t)
-        //         .attr("class", "container card")
-
-        //     place.html('<div class="row"><h4 id="card-title">....</h4></div>' +
-        //         '<div class="row" id="card-details"><p>Topic description here</p></div>' +
-        //         '<div class="row" id="collapse"><button type = "button" class= "collapsible">See Top Words</button>' +
-        //         '<div class="content"><p>Top words here...</p><svg id="topwords" width="355" height="200" style="border: 1px solid black; background-color:white"></svg></div></div >' +
-        //         '<div class="row" id="chart"><svg id = "main" width = "370" height = "300" style = "border: 1px solid black"></svg></div >' +
-        //         '<div class="row" id="card-footer"><p>FOOTER CONTENT HERE</p></div>')
-
-        //     populateCard(t, place.select("svg#main"), place.select("svg#topwords"))
-
-        // })
+        
+        
 
         topCol.slice(1).forEach(t => {
 
@@ -872,6 +982,99 @@
 
         })
 
+        // most common
+
+        let common = ['topic-4', 'topic-7']
+        common.forEach(t => {
+
+            let place = d3.select("div#card-place-common").append("div")
+                .attr("id", t)
+                .attr("class", "container card")
+
+            place.html('<div class="row"><h4 id="card-title">....</h4></div>' +
+                '<div class="row" id="card-details"><p>Topic description here</p></div>' +
+                '<div class="row" id="collapse"><button type = "button" class= "collapsible">See Top Words</button>' +
+                '<div class="content"><p>Top words here...</p><svg id="topwords" width="355" height="200" style="border: 1px solid black; background-color:white"></svg></div></div >' +
+                '<div class="row" id="chart"><svg id = "main" width = "370" height = "300" style = "border: 1px solid black"></svg></div >' +
+                '<div class="row" id="card-footer"><p>FOOTER CONTENT HERE</p></div>')
+
+            populateCard(t, place.select("svg#main"), place.select("svg#topwords"))
+
+        })
+
+        // interest
+
+        let interest = 'topic-8'
+
+        let place = d3.select("div#card-place-interest").append("div")
+            .attr("id", interest)
+            .attr("class", "container card")
+
+        place.html('<div class="row"><h4 id="card-title">....</h4></div>' +
+            '<div class="row" id="card-details"><p>Topic description here</p></div>' +
+            '<div class="row" id="collapse"><button type = "button" class= "collapsible">See Top Words</button>' +
+            '<div class="content"><p>Top words here...</p><svg id="topwords" width="355" height="200" style="border: 1px solid black; background-color:white"></svg></div></div >' +
+            '<div class="row" id="chart"><svg id = "main" width = "370" height = "300" style = "border: 1px solid black"></svg></div >' +
+            '<div class="row" id="card-footer"><p>FOOTER CONTENT HERE</p></div>')
+
+        populateCard(interest, place.select("svg#main"), place.select("svg#topwords"))
+
+        // vary 1 
+        let vary1 = ['topic-6']
+        vary1.forEach(t => {
+
+            let place = d3.select("div#card-place-vary1").append("div")
+                .attr("id", t)
+                .attr("class", "container card")
+
+            place.html('<div class="row"><h4 id="card-title">....</h4></div>' +
+                '<div class="row" id="card-details"><p>Topic description here</p></div>' +
+                '<div class="row" id="collapse"><button type = "button" class= "collapsible">See Top Words</button>' +
+                '<div class="content"><p>Top words here...</p><svg id="topwords" width="355" height="200" style="border: 1px solid black; background-color:white"></svg></div></div >' +
+                '<div class="row" id="chart"><svg id = "main" width = "370" height = "300" style = "border: 1px solid black"></svg></div >' +
+                '<div class="row" id="card-footer"><p>FOOTER CONTENT HERE</p></div>')
+
+            populateCard(t, place.select("svg#main"), place.select("svg#topwords"))
+
+        })
+
+        // vary 2 
+        let vary2 = ['topic-2', 'topic-3']
+        vary2.forEach(t => {
+
+            let place = d3.select("div#card-place-vary2").append("div")
+                .attr("id", t)
+                .attr("class", "container card")
+
+            place.html('<div class="row"><h4 id="card-title">....</h4></div>' +
+                '<div class="row" id="card-details"><p>Topic description here</p></div>' +
+                '<div class="row" id="collapse"><button type = "button" class= "collapsible">See Top Words</button>' +
+                '<div class="content"><p>Top words here...</p><svg id="topwords" width="355" height="200" style="border: 1px solid black; background-color:white"></svg></div></div >' +
+                '<div class="row" id="chart"><svg id = "main" width = "370" height = "300" style = "border: 1px solid black"></svg></div >' +
+                '<div class="row" id="card-footer"><p>FOOTER CONTENT HERE</p></div>')
+
+            populateCard(t, place.select("svg#main"), place.select("svg#topwords"))
+
+        })
+        
+
+        // instantiate the scrollama
+        const scroller2 = scrollama();
+
+        // setup the instance, pass callback functions
+        scroller2
+            .setup({
+                step: ".card"
+            })
+            .onStepEnter((response) => {
+                var id = response.element.id
+
+                collide.forEach((e) => {
+                    if(e['topic']==id){
+                        e['simStore'].alpha(0.9).restart()
+                    }
+                })   
+            })
         
 
 
@@ -898,16 +1101,6 @@
             }   
         }
 
-        function mouseMove(e, d) {
-            // d3.select('#tooltip')
-            //     .style('left', (e.pageX + 10) + 'px').style('top', (e.pageY + 10) + 'px')
-            //     .text(d.text)
-            //     .transition()
-            //     .duration(100)
-            //     .ease(d3.easeCubicIn)
-            //     .style('opacity', 1).text(d.text)
-        }
-
         function mouseClick(e,d){
 
             d3.select(this).classed("active", true)
@@ -924,8 +1117,7 @@
                 .attr('id', 'tooltip')
                 .attr('style', 'position: absolute; opacity: 0;');
 
-        
-            console.log(d3.select(this).attr("cy"), e.y*0.8)
+    
 
 
             d3.select('#tooltip')
