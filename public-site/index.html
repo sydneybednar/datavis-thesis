@@ -64,7 +64,6 @@
                 margin: 0 auto 2rem auto;
                 background-color: #eee;
                 color: rgb(0, 0, 0);
-                min-height: min-content;
                 padding-bottom: 1em;
                 display: flex;
                 flex-direction: column;
@@ -105,6 +104,7 @@
                 width: 400px;
                 padding: 1em;
                 margin: 1em;
+                background-color: white;
                 box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
                 border-radius: 5px;
                 font-family: 'Roboto Mono', sans-serif;
@@ -152,7 +152,10 @@
                 font-size: 22px;
             }
             #card-footer {
-                margin: 1em 0;
+                margin-top: 1em;
+            }
+            #card-footer p {
+                margin: 0;
             }
             #tooltip{
                 display: inline-block;
@@ -167,6 +170,9 @@
                 box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
                 border-radius: 5px;
                 font-family: 'Roboto Mono', sans-serif;
+            }
+            .point{
+                cursor: pointer;
             }
             blockquote {
                 font-size: 1.25em;
@@ -210,6 +216,14 @@
             }
             .text-section {
                 margin-top: 1em;
+            }
+            #tip {
+                border-top: 2px solid black;
+                border-bottom: 2px solid black;
+                padding: 1em;
+                margin-bottom: 2em;
+                /* background-color: #eee; */
+                /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
             }
 
         </style>
@@ -328,6 +342,12 @@
             <p id="d43931d6-b187-43f7-87ad-7e4fe1a11358" class="">This emphasis on openness and participation fosters an environment
                 with unique topical trends, and understanding these trends is the first step to uncovering the gaps in current
                 treatment. </p>
+        </div>
+
+        <div id="tip">
+            <h2>TIP: Reading topic cards</h2>
+            <p>Throughout the article, you will see cards corresponding to each topic. Here is what each card will tell you:</p>
+            <img src="images/card-instruct.svg" height="700"></img>
         </div>
             
         <div id="most-common" class="text-section">
@@ -568,7 +588,7 @@
     // generic window resize listener event
     function handleResize() {
         // 1. update height of step elements
-        var stepH = Math.floor(window.innerHeight * 0.55);
+        var stepH = Math.floor(window.innerHeight * 0.5);
         step.style("height", stepH + "px");
 
         var figureHeight = window.innerHeight / 2;
@@ -725,7 +745,16 @@
         function updateText(chosenTopic){
             let cont = d3.select(`div#${chosenTopic}`)
             cont.select("h4#card-title").text(titleMap[chosenTopic])
-            cont.select("div#card-details").select("p").text(descMap[chosenTopic]).style("font-size", 14)
+            cont.select("div#card-details").select("p")
+                .text(descMap[chosenTopic])
+                .style("font-size", 14)
+            cont.select("div.content").select("p")
+                .text("Here are the top 10 words associated with this topic ordered by probability:")
+                .style("font-size", 14)
+            cont.select("div#card-footer").select("p")
+                .text("*Radius size corresponds to topic saliency for that post")
+                .style("font-size", 14)
+                .style("color", "#808080")
         }
 
         d3.select('body').on('click', resetTooltip)
@@ -792,8 +821,9 @@
                         .tickFormat(d3.format(".1%")));
 
                 // color scale
-                var barColor = d3.scaleSequential(d3.interpolateOrRd)
+                var barColor = d3.scaleSequential()
                     .domain(xExtent)
+                    .interpolator(d3.interpolateRgb("lavender", "mediumslateblue"))
 
                 wordArea.selectAll("rects").data(selectWords)
                     .join("rect")
@@ -848,7 +878,7 @@
 
             var color = d3.scaleOrdinal()
                 .domain(['edc', 'mpa', 'reddit'])
-                .range(["cornflowerblue", "coral", "crimson"]);
+                .range(["#2C8C69", "#005fd9", "#ff4500"]);
 
             // The largest node for each cluster.
             var clusters = new Array(m);
@@ -904,8 +934,8 @@
 
             var node = chartArea.selectAll('circle')
                 .data(nodesTest)
-                .attr("class", "point")
                 .enter().append('circle')
+                .attr("class", "point")
                 .style('fill', d => lighten(color(d.cluster), d.radius))
                 .on("mouseover", hoverIn)
                 .on("mouseout", hoverOut)
@@ -916,17 +946,17 @@
                      .attr("cx", 80)
                      .attr("cy", 20)
                      .attr("r", 6)
-                     .style("fill", "crimson")
+                     .style("fill", "#ff4500")
             legArea.append("circle")
                      .attr("cx", 170)
                      .attr("cy", 20)
                      .attr("r", 6)
-                     .style("fill", "coral")
+                     .style("fill", "#005fd9")
             legArea.append("circle")
                      .attr("cx", 240)
                      .attr("cy", 20)
                      .attr("r", 6)
-                     .style("fill", "cornflowerblue")
+                     .style("fill", "#2C8C69")
             legArea.append("text")
                      .attr("x", 90)
                      .attr("y", 20)
@@ -1078,7 +1108,7 @@
         
 
 
-       function lighten(color, radius) {
+        function lighten(color, radius) {
     
 
             let hclColor = d3.hcl(color);
