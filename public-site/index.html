@@ -225,6 +225,19 @@
                 /* background-color: #eee; */
                 /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
             }
+            .footer {
+                position: relative;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                background-color: #eee;
+                text-align: center;
+                margin-top: 5em;
+                padding: 1em;
+            }
+            .footer p{
+                margin: 0;
+            }
 
         </style>
 
@@ -346,7 +359,7 @@
 
         <div id="tip">
             <h2>TIP: Reading topic cards</h2>
-            <p>Throughout the article, you will see cards corresponding to each topic. Here is what each card will tell you:</p>
+            <p>Throughout the article, you will see cards corresponding to each topic. Here is what the card will tell you:</p>
             <img src="images/card-instruct.svg" height="700"></img>
         </div>
             
@@ -569,6 +582,11 @@
         </div>
     </div>
 
+    </div>
+
+    <div class="footer">
+        <p>Sydney Bednar</p>
+        <p>Cornell University 2023</p>
     </div>
 
     <script>
@@ -1101,7 +1119,11 @@
 
                 collide.forEach((e) => {
                     if(e['topic']==id){
-                        e['simStore'].alpha(0.9).restart()
+                        e['simStore'].alpha(0.9).restart().stop()
+                        for(let i=0; i<20; i++){
+                            {e['simStore'].tick()}
+                        }
+                        e['simStore'].restart()
                     }
                 })   
             })
