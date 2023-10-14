@@ -192,10 +192,20 @@
             #header-article{
                 border-bottom: 1px solid #eee;
                 margin-bottom: 2em;
+                margin-top: 2em;
                 padding-left: 6em;
                 padding-right: 6em;
-                padding-top: 2em;
-                background-color:#eee;
+                /* background-color:#eee; */
+                box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+            }
+
+            #header-article .header-text{
+                margin: 0 auto;
+                max-width: 900px;
+            }
+
+            #header-article p{
+                font-size: 12pt;
             }
 
             .block-color-gray_background {
@@ -208,9 +218,14 @@
             }
             .tw{
                 border: 3px solid red;
+                border-radius: 5px;
                 background-color:rgb(250, 216, 216);
                 padding: 0.5em;
                 font-size: 11pt;
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            }
+            .tw p{
+                font-size: 12pt;
             }
             .page-body{
                 margin-bottom: 1em;
@@ -235,6 +250,7 @@
                 text-align: center;
                 margin-top: 10em;
                 padding: 1em;
+                box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
             }
             .footer p{
                 margin: 0;
@@ -250,12 +266,14 @@
 <body>
 
     <div id="header-article">
-        <h1>Are We Even Listening? Taking a Closer Look at Pro-Anorexia Communities</h1>
-        <h5><i>
-            A topic modeling approach to understanding the experiences of those struggling
-            with an eating disorder
-        </i></h5>
-        <p>By Sydney Bednar</p>
+        <div class="header-text">
+            <h4><strong>Are We Even Listening? Taking a Closer Look at Pro-Anorexia Communities</strong></h4>
+            <h5><i>
+                A topic modeling approach to understanding the experiences of those struggling
+                with an eating disorder
+            </i></h5>
+            <p>By Sydney Bednar</p>
+        </div>
     </div>
 
     <div id="content">
@@ -264,7 +282,9 @@
     <!-- intro + corpus and methods -->
     <div class="page-body">
         <div class="text-section" id="intro">
-            <p id="99bf3a8a-fdb9-4305-932e-66cf67c76ddc" class="tw"><strong>TRIGGER WARNING:</strong> This article will discuss personal experiences with eating disorders.</p>
+            <p id="99bf3a8a-fdb9-4305-932e-66cf67c76ddc" class="tw">
+                <strong>TRIGGER WARNING:</strong> This article will discuss personal experiences with eating disorders.
+            </p>
             <h2 id="22b68d8c-0b89-451c-97d1-ce5fc1bcce1b" class="">Introduction</h2>
             <p id="4af505ab-2088-44ba-8ddd-656eecc001b9" class="">More than <a href="https://anad.org/eating-disorders-statistics/">9% of the global population</a> will have an eating
             disorder at some point over their lifetime. About 26% of this population will attempt suicide, and <a
